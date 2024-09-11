@@ -6,4 +6,4 @@ relative_links:
 include:
   - README.md
   - LICENSE.md
-  - naming-conventions.md
+  - ../guidelines/naming-conventions.md
