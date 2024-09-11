@@ -18,18 +18,18 @@ In this demo, you will learn how to:
 ## Documentation
 Explore the detailed documentation for each available bespoke terraform module at Contoso:
 
-- [Module 1: Azure Resource Group](./modules/azurerm-rg.md)
-- [Module 2: Azure Storage Account](./modules/azurerm-sa.md)
-- [Module 3: Azure Key Vault](./modules/azurerm-kv.md)
+- [Module 1: Azure Resource Group](../modules/azurerm-rg.md)
+- [Module 2: Azure Storage Account](../modules/azurerm-sa.md)
+- [Module 3: Azure Key Vault](../modules/azurerm-kv.md)
 -  TBC
 
 ## Additional Resources and Best Practices
 Explore additional resources and best practices for Terraform and Azure:
 
-- [Naming Conventions](./guidelines/naming-conventions.md)
-- [Azure Best Practices](./guidelines/azure-best-practices.md)
-- [Networking](./guidelines/networking.md)
-- [Private Endpoints](./guidelines/private-endpoints.md)
+- [Naming Conventions](../guidelines/naming-conventions.md)
+- [Azure Best Practices](../guidelines/azure-best-practices.md)
+- [Networking](../guidelines/networking.md)
+- [Private Endpoints](../guidelines/private-endpoints.md)
 
 ## Contact
 For any questions or feedback, please open an issue or contact us at Contoso [support@contoso.com](mailto:support@contoso.com).
