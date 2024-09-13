@@ -65,13 +65,11 @@ Don't use `#` in a resource name. It interferes with URL parsing on Azure Resour
 
 ## Microsoft.App
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | containerApps | resource group | 2-32 | 	Lowercase letters, numbers, and hyphens..<br><br>Start with letter and end with alphanumeric. |
 
 ## Microsoft.AppConfiguration
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -82,13 +80,11 @@ Don't use `#` in a resource name. It interferes with URL parsing on Azure Resour
 
 ## Microsoft.AppPlatform
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | spring | global | 4-32 | Lowercase letters, numbers, and hyphens. |
 
 ## Microsoft.Authorization
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -101,7 +97,6 @@ Don't use `#` in a resource name. It interferes with URL parsing on Azure Resour
 | roleDefinitions | tenant | 36 | Must be a globally unique identifier (GUID). |
 
 ## Microsoft.Automation
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -120,13 +115,11 @@ Automation account names are unique per region and resource group. Names for del
 
 ## Microsoft.AVS
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | privateClouds | resource group | 1-80 | Alphanumerics, periods, hyhens, and underscores.<br><br>Start with alphanumeric and end with alphanumeric or underscore. |
 
 ## Microsoft.Batch
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -137,13 +130,11 @@ Automation account names are unique per region and resource group. Names for del
 
 ## Microsoft.Blockchain
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | blockchainMembers | global | 2-20 | Lowercase letters and numbers.<br><br>Start with lowercase letter. |
 
 ## Microsoft.Blueprint
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -151,7 +142,6 @@ Automation account names are unique per region and resource group. Names for del
 | blueprintAssignments | Management groups, Subscriptions, Resource groups | 90 | Alphanumerics, underscores, and hyphens. |
 
 ## Microsoft.BotService
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -162,14 +152,12 @@ Automation account names are unique per region and resource group. Names for del
 
 ## Microsoft.Cache
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | Redis | global | 1-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. Consecutive hyphens not allowed. |
 | Redis / firewallRules | Redis | 1-256 | Alphanumerics |
 
 ## Microsoft.Cdn
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -181,20 +169,17 @@ Automation account names are unique per region and resource group. Names for del
 
 ## Microsoft.CertificateRegistration
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | certificateOrders | resource group | 3-50 | Alphanumerics. |
 
 ## Microsoft.CognitiveServices
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | accounts | resource group | 2-64 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 
 ## Microsoft.Compute
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -217,13 +202,11 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.Communication
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | communicationServices | global | 1-63 | Alphanumerics and hyphens.<br><br>Can't start or end with hyphen.<br><br>Can't use underscores. |
 
 ## Microsoft.ConfidentialLedger
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -231,20 +214,17 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.Consumption
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | budgets | subscription or resource group | 1-63 | Alphanumerics, hyphens, and underscores. |
 
 ## Microsoft.ContainerInstance
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | containerGroups | resource group | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. Consecutive hyphens aren't allowed. |
 
 ## Microsoft.ContainerRegistry
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -259,14 +239,12 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.ContainerService
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | managedClusters | resource group | 1-63 | Alphanumerics, underscores, and hyphens.<br><br>Start and end with alphanumeric. |
 | managedClusters / agentPools | managed cluster | 1-12 for Linux<br>1-6 for Windows | Lowercase letters and numbers.<br><br>Can't start with a number. |
 
 ## Microsoft.CustomerInsights
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -286,7 +264,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.CustomProviders
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | associations | resource group | 1-180 | Can't use:<br>`%&\\?/` or control characters<br><br>Can't end with period or space. |
@@ -294,20 +271,17 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.DataBox
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | jobs | resource group | 3-24 | Alphanumerics, hyphens, underscores and periods. |
 
 ## Microsoft.Databricks
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | workspaces | resource group | 3-64 | Alphanumerics, underscores, and hyphens |
 
 ## Microsoft.DataFactory
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -322,7 +296,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.DataLakeAnalytics
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | accounts | global | 3-24 | Lowercase letters and numbers. |
@@ -333,7 +306,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.DataLakeStore
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | accounts | global | 3-24 | Lowercase letters and numbers. |
@@ -342,14 +314,12 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.DataMigration
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | services | resource group | 2-62 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with alphanumeric. |
 | services / projects | service | 2-57 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with alphanumeric. |
 
 ## Microsoft.DataProtection
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -358,7 +328,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 | backupVaults / backupPolicies  | backup vault | 1-75 | Alphanumerics and hyphens. |
 
 ## Microsoft.DBforMariaDB
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -369,7 +338,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.DBforMySQL
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | servers | global | 3-63 | Lowercase letters, hyphens and numbers.<br><br>Can't start or end with hyphen. |
@@ -378,7 +346,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 | servers / virtualNetworkRules | servers | 1-128 | Alphanumerics and hyphens. |
 
 ## Microsoft.DBforPostgreSQL
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -389,7 +356,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.DesktopVirtualization
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | applicationGroups | resource group | 3-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with letter or number. End with letter, number, or underscore. |
@@ -397,7 +363,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 | workspaces | resource group | 3-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with letter or number. End with letter, number, or underscore. |
 
 ## Microsoft.Devices
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -409,7 +374,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.DevTestLab
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | labs | resource group | 1-50 | Alphanumerics, underscores, and hyphens. |
@@ -419,13 +383,11 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.DocumentDB
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | databaseAccounts | global | 3-44 | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
 
 ## Microsoft.ElasticSan (preview)
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -433,7 +395,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 | elasticSans / volumeGroups | elastic san | 3-63 | Lowercase letters, numbers and hyphens.<br><br>Start with lowercase letter or number.<br><br>Must begin and end with a letter or a number.<br><br>Each hyphen must be preceded and followed by an alphanumeric character. |
 
 ## Microsoft.EventGrid
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -443,7 +404,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 | topics | region | 3-50 | Alphanumerics and hyphens. |
 
 ## Microsoft.EventHub
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -457,20 +417,17 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.HDInsight
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | clusters | global | 3-59 | Alphanumerics and hyphens<br><br>Start and end with letter or number. |
 
 ## Microsoft.ImportExport
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | jobs | resource group | 2-64 | Alphanumerics and hyphens.<br><br>Start with letter. |
 
 ## Microsoft.Insights
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -483,13 +440,11 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.IoTCentral
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | IoTApps | global | 2-63 | Lowercase letters, numbers and hyphens.<br><br>Start with lowercase letter or number. |
 
 ## Microsoft.KeyVault
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -497,7 +452,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 | vaults / secrets | Vault | 1-127 | Alphanumerics and hyphens. |
 
 ## Microsoft.Kusto
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -508,14 +462,12 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.LabServices
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | labplans | resource group | 1-100 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with letter and end with alphanumeric. |
 | labs | resource group | 1-100 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with letter and end with alphanumeric. |
 
 ## Microsoft.LoadTestService
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -548,7 +500,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.MachineLearningServices
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | workspaces | resource group | 3-33 | Alphanumerics, hyphens, and underscores. |
@@ -556,7 +507,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 | workspaces / datastores | workspace | Maximum 255 characters for datastore name| Datastore name consists only of lowercase letters, digits, and underscores. |
 
 ## Microsoft.ManagedIdentity
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -570,13 +520,11 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.Maps
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | accounts | resource group | 1-98 (for resource group name and account name) | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
 
 ## Microsoft.Media
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -586,7 +534,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 | mediaservices / streamingEndpoints | Media service | 1-24 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
 
 ## Microsoft.MobileNetwork
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -604,7 +551,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.NetApp
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | netAppAccounts | resource group | 1-128 | Alphanumerics, underscores, and hyphens. <br><brStart with alphanumeric. |
@@ -617,7 +563,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 | netAppAccounts / volumeGroups | NetApp account | 3-64 |  Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. |
 
 ## Microsoft.Network
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -694,7 +639,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.NotificationHubs
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | namespaces | global | 6-50 | Alphanumerics and hyphens<br><br>Start with letter. End with alphanumeric. |
@@ -704,7 +648,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.OperationalInsights
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | clusters | resource group | 4-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
@@ -712,13 +655,11 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.OperationsManagement
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | solutions | workspace | N/A | For solutions authored by Microsoft, the name must be in the pattern:<br>`SolutionType(WorkspaceName)`<br><br>For solutions authored by third parties, the name must be in the pattern:<br>`SolutionType[WorkspaceName]`<br><br>For example, a valid name is:<br>`AntiMalware(contoso-IT)`<br><br>The solution type is case-sensitive. |
 
 ## Microsoft.Portal
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -726,13 +667,11 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.PowerBI
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | workspaceCollections | region | 3-63 | Alphanumerics and hyphens.<br><br>Can't start with hyphen. Can't use consecutive hyphens. |
 
 ## Microsoft.PowerBIDedicated
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -740,13 +679,11 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.Quantum
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | workspaces | region | 2-54 | Alphanumerics and hyphens.<br><br>Can't start or end with hyphen. |
 
 ## Microsoft.RecoveryServices
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -754,7 +691,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 | vaults / backupPolicies | vault | 3-150 | Alphanumerics and hyphens.<br><br>Start with letter. Can't end with hyphen. |
 
 ## Microsoft.Relay
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -767,17 +703,15 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.Resources
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | deployments | resource group | 1-64 | Alphanumerics, underscores, parentheses, hyphens, and periods. |
-| resourcegroups | subscription | 1-90 | Underscores, hyphens, periods, parentheses, and letters or digits as defined by the [Char.IsLetterOrDigit](/dotnet/api/system.char.isletterordigit) function.<br><br>Valid characters are members of the following categories in [UnicodeCategory](/dotnet/api/system.globalization.unicodecategory):<br>**UppercaseLetter**,<br>**LowercaseLetter**,<br>**TitlecaseLetter**,<br>**ModifierLetter**,<br>**OtherLetter**,<br>**DecimalDigitNumber**.<br><br>Can't end with period. |
+| resourcegroups | subscription | 1-90 | Underscores, hyphens, periods, parentheses, and letters or digits as defined by the [Char.IsLetterOrDigit](https://learn.microsoft.com/en-us/dotnet/api/system.char.isletterordigit?view=net-8.0/?wt.mc_id=DT-MVP-5004771) function.<br><br>Valid characters are members of the following categories in [UnicodeCategory](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.unicodecategory?view=net-8.0/?wt.mc_id=DT-MVP-5004771):<br>**UppercaseLetter**,<br>**LowercaseLetter**,<br>**TitlecaseLetter**,<br>**ModifierLetter**,<br>**OtherLetter**,<br>**DecimalDigitNumber**.<br><br>Can't end with period. |
 | tagNames | resource | 1-512 | Can't use:<br>`<>%&\?/` or control characters |
 | tagNames / tagValues | tag name | 1-256 | All characters. |
 | templateSpecs | resource group | 1-90 | Alphanumerics, underscores, parentheses, hyphens, and periods. |
 
 ## Microsoft.Security
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -802,10 +736,9 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.ServiceBus
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
-| namespaces | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with a letter. End with a letter or number.<br><br>For more information, see [Create namespace](/rest/api/servicebus/create-namespace). |
+| namespaces | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with a letter. End with a letter or number.<br><br>For more information, see [Create namespace](https://learn.microsoft.com/en-us/rest/api/servicebus/create-namespace/?wt.mc_id=DT-MVP-5004771). |
 | namespaces / AuthorizationRules | namespace | 1-50 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start and end with alphnumeric. |
 | namespaces / disasterRecoveryConfigs | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with alphanumeric. |
 | namespaces / migrationConfigurations | namespace |  | Should always be **$default**. |
@@ -818,20 +751,17 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.ServiceFabric
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | clusters | region | 4-23 | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter. End with lowercase letter or number. |
 
 ## Microsoft.SignalRService
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | signalR | global | 3-63 | Alphanumerics and hyphens.<br><br>Start with letter. End with letter or number.  |
 
 ## Microsoft.Sql
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -847,7 +777,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.Storage
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | storageAccounts | global | 3-24 | Lowercase letters and numbers. |
@@ -862,7 +791,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.StorageSync
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | storageSyncServices | resource group | 1-260 | Alphanumerics, spaces, periods, hyphens, and underscores.<br><br>Can't end with period or space. |
@@ -870,13 +798,11 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.StorSimple
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | managers | resource group | 2-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with alphanumeric. |
 
 ## Microsoft.StreamAnalytics
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -888,16 +814,14 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.Synapse
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | privateLinkHubs | resource group | 1-45 | Lowercase letters and numbers. |
 | workspaces | global | 1-50 | Lowercase letters, hyphens, and numbers.<br><br>Start and end with letter or number.<br><br>Can't contain `-ondemand` |
-| workspaces / bigDataPools | workspace | 1-15 | Letters and numbers.<br><br>Start with letter. End with letter or number.<br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
-| workspaces / sqlPools | workspace | 1-60 | Can't contain `<>*%&:\/?@-` or control characters. <br><br>Can't end with `.` or space. <br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
+| workspaces / bigDataPools | workspace | 1-15 | Letters and numbers.<br><br>Start with letter. End with letter or number.<br><br>Can't contain [reserved word](https://learn.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/error-reserved-resource-name/?wt.mc_id=DT-MVP-5004771). |
+| workspaces / sqlPools | workspace | 1-60 | Can't contain `<>*%&:\/?@-` or control characters. <br><br>Can't end with `.` or space. <br><br>Can't contain [reserved word](https://learn.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/error-reserved-resource-name/?wt.mc_id=DT-MVP-5004771). |
 
 ## Microsoft.TimeSeriesInsights
-
 
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
@@ -908,7 +832,6 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 
 ## Microsoft.Web
 
-
 | Entity | Scope | Length | Valid Characters |
 | --- | --- | --- | --- |
 | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with space or period.  |
@@ -918,12 +841,12 @@ Azure virtual machines have two distinct names: resource name and host name. Whe
 | sites / privateEndpointConnections | site | 2-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 
 *Note:*
-A web site must have a globally unique URL. When you create a web site that uses a hosting plan, the URL is `http://<app-name>.azurewebsites.net`. The app name must be globally unique. When you create a web site that uses an App Service Environment, the app name must be unique within the [domain for the App Service Environment](../../app-service/environment/using-an-ase.md#app-access). For both cases, the URL of the site is globally unique.
-Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites. When generating the host ID, the function app name is truncated to 32 characters. This can cause host ID collision when a shared storage account is used. For more information, see [Host ID considerations](../../azure-functions/storage-considerations.md#host-id-considerations). 
-Unicode characters are parsed to Punycode using the [IdnMapping.GetAscii method](/dotnet/api/system.globalization.idnmapping.getascii)
+A web site must have a globally unique URL. When you create a web site that uses a hosting plan, the URL is `http://<app-name>.azurewebsites.net`. The app name must be globally unique. When you create a web site that uses an App Service Environment, the app name must be unique within the [domain for the App Service Environment](https://learn.microsoft.com/en-us/azure/app-service/environment/using-an-ase#app-access/?wt.mc_id=DT-MVP-5004771). For both cases, the URL of the site is globally unique.
+Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites. When generating the host ID, the function app name is truncated to 32 characters. This can cause host ID collision when a shared storage account is used. For more information, see [Host ID considerations](https://learn.microsoft.com/en-us/azure/azure-functions/storage-considerations?tabs=azure-cli#host-id-considerations/?wt.mc_id=DT-MVP-5004771). 
+Unicode characters are parsed to Punycode using the [IdnMapping.GetAscii method](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.idnmapping.getascii?view=net-8.0/?wt.mc_id=DT-MVP-5004771)
 
 ## Next steps
 
-* For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+* For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging/?wt.mc_id=DT-MVP-5004771).
 
-* All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](../templates/error-reserved-resource-name.md).
+* All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](https://learn.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/error-reserved-resource-name/?wt.mc_id=DT-MVP-5004771).
