@@ -75,7 +75,27 @@ Module usage example:
 module "appgwV2" {
   source                              = "git::ssh://git@ssh.dev.azure.com/v3/Contoso/Contoso-Modules/azurerm_application_gateway?ref=v1.3.0"
   
-
+  // Required inputs:
+  backend_address_pools               = var.backend_address_pools
+  backend_http_settings               = var.backend_http_settings
+  capacity                            = var.capacity
+  frontend_port                       = var.frontend_port
+  http_listeners                      = var.http_listeners
+  key_vault_name                      = var.key_vault_name
+  private_ip                          = var.private_ip
+  request_routing_rules               = var.request_routing_rules
+  resource_group_name                 = var.resource_group_name
+  subnet_name                         = var.subnet_name
+  virtual_network_resource_group_name = var.virtual_network_resource_group_name
+  vnet_name                           = var.vnet_name
+  waf_enabled                         = var.waf_enabled
+  
+  // Optional inputs:
+  project                                            = var.project
+  environment                                        = var.environment
+   
+  //See the "## Input arguments and outputs" section for all available options or "variables.tf"
+  // If not specified, the default values on "variables.tf" will be applied
 }
 ```
 
@@ -84,95 +104,83 @@ module "appgwV2" {
 Example input values for the Application Gateway module variables:
 
 ```hcl
-project                             = "prj"
-environment                         = "dev"
-location                            = "westeurope"
-resource_group_name                 = "conto-np-appl-ssp-test-rg"
-virtual_network_name                = "vnet-ssp-nonprod-conto-vnet"
-key_vault_name                      = "kv-ssp-0-nonprod-conto"
-key_vault_secret_or_certificate_id  = "https://kv-ssp-0-nonprod-conto.vault.azure.net/secrets/test/39d478f59bf14e45ab36a630a7a87db9"
-virtual_network_resource_group_name = "conto-np-appl-ssp-test-rg"
-vint_subnet_name                    = "appgw-subnet"
-
-frontend_ip_private = "10.0.3.10"
-frontend_port       = ["443"]
-
-key_vault_rbac = true
-appgw_public   = true
+// Required inputs:
+resource_group_name                 = "conto-dev-prj-rg"
+key_vault_name                      = "conto-dev-prj-kv"
+virtual_network_resource_group_name = "conto-dev-prj-network-rg"
+vnet_name                           = "conto-dev-prj-vnet"
+subnet_name                         = "appgw-subnet"
+waf_enabled                         = true
+private_ip                          = "10.0.2.10"
 
 backend_address_pools = [
   {
-    name  = "test-beap"
-    ip    = ["10.0.4.4"]
+    name  = "contoso-backend-pool"
+    ip    = ["10.0.1.1"]
     fqdns = []
   }
 ]
+
 backend_http_settings = [
   {
     cookie_based_affinity           = "Disabled"
-    name                            = "test-be-htst"
+    name                            = "contoso-http-settings"
     path                            = ""
-    port                            = "80"
+    port                            = 80
     protocol                        = "Http"
-    request_timeout                 = "20"
-    host_name                       = "test.corp"
-    probe_name                      = "test-probe"
+    request_timeout                 = 20
+    host_name                       = "contoso.com"
+    probe_name                      = "contoso-probe"
     connection_draining_enabled     = false
-    connection_draining_timeout_sec = "30"
+    connection_draining_timeout_sec = 30
     pick_hostname                   = false
   }
 ]
 
+capacity = {
+  min = 1
+  max = 10
+}
 
+frontend_port = ["443"]
 http_listeners = [
   {
-    name                 = "test-httplstn"
+    name                 = "contoso-https-listener"
     frontend_port_number = "443"
     protocol             = "Https"
-    ssl_certificate_name = "test"
-    host_name            = "test.com"
+    ssl_certificate_name = "contoso-ssl-cert"
+    host_name            = "contoso.com"
     require_sni          = false
-  }
-]
-
-probes = [
-  {
-    name                  = "test-probe"
-    interval              = "2"
-    timeout               = "5"
-    protocol              = "Http"
-    path                  = "/"
-    unhealthy_threshold   = "2"
-    match_status_code     = ["200"]
-    pick_hostname_backend = false
-    host                  = "test.corp"
   }
 ]
 
 request_routing_rules = [
   {
-    name                        = "test-rqrt"
+    name                        = "contoso-routing-rule"
     priority                    = 1
-    http_listener_name          = "test-httplstn"
-    backend_address_pool_name   = "test-beap"
-    backend_http_settings_name  = "test-be-htst"
+    http_listener_name          = "contoso-https-listener"
+    backend_address_pool_name   = "contoso-backend-pool"
+    backend_http_settings_name  = "contoso-http-settings"
     rule_type                   = "Basic"
     url_path_map_name           = ""
     redirect_configuration_name = ""
   }
 ]
 
-waf_enabled  = true
-waf_mode     = "Prevention"
-sku_name     = "WAF_v2"
-sku_tier     = "WAF_v2"
+// Optional inputs:
+project                             = "paperclips
+environment                         = "uat"
+
+// See the "## Input arguments and outputs" section for all available options or "variables.tf"
+// If not specified, the default values on "variables.tf" will be applied
 ```
 
 ### variables.tf
 
 Example variable definitions for the Application Gateway module:
 
-```hcl// Required Inputs
+```hcl
+// Required Inputs
 
 variable "backend_address_pools" {
   type = list(object({

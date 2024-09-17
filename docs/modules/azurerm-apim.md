@@ -83,6 +83,7 @@ Module usage example:
 module "apim" {
   source                                             = "git::ssh://git@ssh.dev.azure.com/v3/Contoso/Contoso-Modules/azurerm_api_management?ref=v1.3.1"
 
+  // Required inputs:
   resource_group_name                                = var.resource_group_name
   subnet_names                                       = var.subnet_names
   virtual_network_resource_group_name                = var.virtual_network_resource_group_name
@@ -90,7 +91,11 @@ module "apim" {
   publisher_name                                     = var.publisher_name
   backend_services                                   = var.backend_services
 
-  // Optional inputs.. See the "## Input arguments and outputs" section for all available options or "variables.tf"
+  // Optional inputs:
+  project                                            = var.project
+  environment                                        = var.environment
+   
+  //See the "## Input arguments and outputs" section for all available options or "variables.tf"
   // If not specified, the default values on "variables.tf" will be applied
 }
 ```
@@ -100,8 +105,7 @@ module "apim" {
 Example input values for the APIM module variables:
 
 ```hcl
-// Required inputs
-
+// Required inputs:
 resource_group_name                 = "conto-dev-project-rg"
 subnet_names                        = ["apim"]
 virtual_network_resource_group_name = "conto-dev-project-network-rg"
@@ -109,7 +113,11 @@ nsg_name                            = "conto-dev-project-apim-nsg"
 publisher_name                      = "Contoso ApiManager"
 backend_services                    = ["admin-services-api", "user-services-api"]
 
-// Optional inputs.. See the "## Input arguments and outputs" section for all available options or "variables.tf"
+// Optional inputs:
+project                             = "paperclips
+environment                         = "uat"
+
+// See the "## Input arguments and outputs" section for all available options or "variables.tf"
 // If not specified, the default values on "variables.tf" will be applied
 ```
 
