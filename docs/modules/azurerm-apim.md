@@ -44,12 +44,12 @@ The following resources will be deployed when using Contoso's APIM module.
 
 ## Pre-requisites
 
-----------------------------
+----------------------------;
 
 Make sure to update the Terraform versions and providers according to your specific needs.
 
 - **Minimum Terraform version:** >= 1.8.0
-- **Azure provider version:** ~> 4.2.0
+- **AzureRM provider version:** ~> 4.2.0
 
 Before deploying Contoso's APIM module, ensure the following Azure resources are in place:
 
@@ -64,7 +64,7 @@ Before deploying Contoso's APIM module, ensure the following Azure resources are
 
 ## Contoso Naming convention
 
-----------------------------
+----------------------------;
 
 Contoso's naming convention for the APIM module follows a structured format to ensure consistency and clarity across resources. The naming convention is derived from the following variables `environment` and `project`:
 
@@ -73,7 +73,7 @@ Contoso's naming convention for the APIM module follows a structured format to e
 
 ## Examples
 
-----------------------------
+----------------------------;
 
 ### module.tf
 
@@ -114,6 +114,8 @@ backend_services                    = ["admin-services-api", "user-services-api"
 ```
 
 ### variables.tf
+
+Example variable definitions for the APIM module:
 
 ```hcl
 // Required Inputs
@@ -408,7 +410,7 @@ variable "zones" {
 }
 ```
 
-## main.tf
+### main.tf
 
 ```hcl
 terraform {
@@ -421,39 +423,39 @@ provider "azurerm" {
 }
 ```
 
-----------------------------
-
 ## Input arguments and outputs
 
-## Inputs
+----------------------------;
+
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | `additional_location` | List of the name of the Azure Region in which the API Management Service should be expanded to. | `list(map(string))` | `[]` | no |
-| `app_insights_name` | (Optional) In case you want to integrate APIM with application insights please specify name | `string` | `null` | no |
+| `app_insights_name` | In case you want to integrate APIM with application insights please specify name | `string` | `null` | no |
 | `backend_protocol` | Protocol for the backend http or soap | `string` | `"http"` | no |
 | `backend_services` | Include backend setting in case are needed | `list(string)` | n/a | yes |
 | `certificate_configuration` | List of certificate configurations | `list(map(string))` | `[]` | no |
-| `client_certificate_enabled` | (Optional) Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`. | `bool` | `false` | no |
+| `client_certificate_enabled` | Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`. | `bool` | `false` | no |
 | `create_management_rule` | Whether to create the NSG rule for the management port of the APIM. If true, nsg_name variable must be set | `bool` | `true` | no |
 | `custom_management_rule_name` | Custom NSG rule name for APIM Management. | `string` | `"default-management-apim-rule"` | no |
-| `developer_portal_host_name` | (Optional) Name for the developers portal URL | `string` | `null` | no |
+| `developer_portal_host_name` | Name for the developers portal URL | `string` | `null` | no |
 | `developer_portal_hostname_configuration` | Developer portal hostname configurations | `list(map(string))` | `[]` | no |
 | `enable_http2` | Should HTTP/2 be supported by the API Management Service? | `bool` | `false` | no |
 | `enable_sign_in` | Should anonymous users be redirected to the sign in page? | `bool` | `false` | no |
 | `enable_sign_up` | Can users sign up on the development portal? | `bool` | `false` | no |
 | `environment` | The environment. e.g. dev, qa, uat, prod | `string` | `"dev"` | no |
-| `gateway_disabled` | (Optional) Disable the gateway in main region? This is only supported when `additional_location` is set. | `bool` | `false` | no |
-| `gateway_host_name` | (Optional) Name for the gateway URL | `string` | `null` | no |
+| `gateway_disabled` | Disable the gateway in main region? This is only supported when `additional_location` is set. | `bool` | `false` | no |
+| `gateway_host_name` | Name for the gateway URL | `string` | `null` | no |
 | `identity_ids` | A list of IDs for User Assigned Managed Identity resources to be assigned. This is required when type is set to UserAssigned or SystemAssigned, UserAssigned. | `list(string)` | `[]` | no |
 | `identity_type` | Type of Managed Service Identity that should be configured on this API Management Service | `string` | `"SystemAssigned"` | no |
 | `key_vault_name` | Name of the Key Vault where the secrets are read | `string` | `null` | no |
 | `keyvault_named_values` | Map containing the name of the named values as key and value as values. The secret is stored in keyvault | `list(map(string))` | `[]` | no |
 | `location` | The default location where the resource will be created | `string` | `"westeurope"` | no |
-| `management_host_name` | (Optional) Name for the management portal URL | `string` | `null` | no |
+| `management_host_name` | Name for the management portal URL | `string` | `null` | no |
 | `management_hostname_configuration` | List of management hostname configurations | `list(map(string))` | `[]` | no |
 | `management_nsg_rule_priority` | Priority of the NSG rule created for the management port of the APIM | `number` | `101` | no |
-| `min_api_version` | (Optional) The version which the control plane API calls to API Management service are limited with version equal to or newer than. | `string` | `null` | no |
+| `min_api_version` | The version which the control plane API calls to API Management service are limited with version equal to or newer than. | `string` | `null` | no |
 | `named_values` | Map containing the name of the named values as key and value as values | `list(map(string))` | `[]` | no |
 | `notification_sender_email` | Email address from which the notification will be sent | `string` | `null` | no |
 | `nsg_name` | NSG name of the subnet hosting the APIM to add the rule to allow management if the APIM is private | `string` | `null` | no |
@@ -474,11 +476,11 @@ provider "azurerm" {
 | `virtual_network_name` | The name of the virtual network for the Azure resources. | `string` | n/a | yes |
 | `virtual_network_resource_group_name` | The name of the resource group that contains the virtual network. | `string` | n/a | yes |
 | `virtual_network_type` | The type of virtual network you want to use, valid values include: None, External, Internal. | `string` | `"Internal"` | no |
-| `wildcard_certificate_key_vault_name` | (Optional) Name of the keyvault containing the certificate | `string` | `null` | no |
-| `wildcard_certificate_key_vault_resource_group_name` | (Optional) Resource group containing certificate keyvault | `string` | `null` | no |
-| `wildcard_certificate_name` | (Optional) Name of the certificate | `string` | `null` | no |
-| `zones` | (Optional) Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created. Supported in Premium Tier. | `list(number)` | <pre>[<br>  1,<br>  2,<br>  3<br>]</pre> | no |
+| `wildcard_certificate_key_vault_name` | Name of the keyvault containing the certificate | `string` | `null` | no |
+| `wildcard_certificate_key_vault_resource_group_name` | Resource group containing certificate keyvault | `string` | `null` | no |
+| `wildcard_certificate_name` | Name of the certificate | `string` | `null` | no |
+| `zones` | Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created. Supported in Premium Tier. | `list(number)` | <pre>[<br>  1,<br>  2,<br>  3<br>]</pre> | no |
 
-## Outputs
+### Outputs
 
 No outputs.
