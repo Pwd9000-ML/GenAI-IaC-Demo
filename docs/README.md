@@ -44,6 +44,7 @@ Check out Contoso's GitHub tutorials to learn more about best practices and guid
 
 - [GitHub Pro Tips](./guidelines/github-pro.md)
 - [GitHub Security Best Practices](./guidelines/github-security.md)
+- [GitHub Repository Best Practices](./guidelines/github-repo.md)
 - [GitHub Collaboration Guidelines](./guidelines/github-collaboration.md)
 
 ---
