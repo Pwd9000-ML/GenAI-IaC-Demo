@@ -98,15 +98,15 @@ Example input values for the APIM module variables:
 
 ```hcl
 // Required inputs:
-resource_group_name                 = "conto-dev-paperclips-rg"
+resource_group_name                 = "conto-dev-pclip-rg"
 subnet_names                        = ["apim"]
-virtual_network_resource_group_name = "conto-dev-paperclips-network-rg"
-nsg_name                            = "conto-dev-paperclips-apim-nsg"
+virtual_network_resource_group_name = "conto-dev-pclip-network-rg"
+nsg_name                            = "conto-dev-pclip-apim-nsg"
 publisher_name                      = "Contoso ApiManager"
 backend_services                    = ["admin-services-api", "user-services-api"]
 
 // Optional inputs:
-project                             = "paperclips
+project                             = "pclip
 environment                         = "uat"
 
 // See the "## Input arguments and outputs" section for all available options or "variables.tf"

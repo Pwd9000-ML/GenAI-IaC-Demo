@@ -21,6 +21,9 @@ Azure Application Gateway is a web traffic load balancer that enables you to man
 | **Version** | **Date** | **Description** |
 |:------------|:---------|:----------------|
 | **v1.3.0**  | 23/08/2024 | General availability of the module with support for the latest version of the AzureRM provider. |
+| **v1.2.0**  | 15/05/2024 | Added support for custom health probes and improved logging capabilities. |
+| **v1.1.0**  | 10/02/2024 | Introduced SSL termination and URL-based routing features. |
+| **v1.0.0**  | 01/01/2024 | Initial release of the Azure Application Gateway module. |
 
 ## Deployed Resources
 
@@ -97,10 +100,10 @@ Example input values for the Application Gateway module variables:
 
 ```hcl
 // Required inputs:
-resource_group_name                 = "conto-dev-paperclips-rg"
-key_vault_name                      = "conto-dev-paperclips-kv"
-virtual_network_resource_group_name = "conto-dev-paperclips-network-rg"
-vnet_name                           = "conto-dev-paperclips-vnet"
+resource_group_name                 = "conto-dev-pclip-rg"
+key_vault_name                      = "conto-dev-pclip-kv"
+virtual_network_resource_group_name = "conto-dev-pclip-network-rg"
+vnet_name                           = "conto-dev-pclip-vnet"
 subnet_name                         = "appgw-subnet"
 waf_enabled                         = true
 private_ip                          = "10.0.2.10"
@@ -160,7 +163,7 @@ request_routing_rules = [
 ]
 
 // Optional inputs:
-project                             = "paperclips
+project                             = "pclip
 environment                         = "uat"
 
 // See the "## Input arguments and outputs" section for all available options or "variables.tf"

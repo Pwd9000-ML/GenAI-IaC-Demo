@@ -93,7 +93,7 @@ Example input values for the resource group module:
 
 ```hcl
 // Required inputs:
-project               = "paperclips"
+project               = "pclip"
 
 // Optional inputs:
 create_default_groups = true

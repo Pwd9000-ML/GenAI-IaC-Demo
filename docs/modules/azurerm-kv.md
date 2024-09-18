@@ -103,18 +103,18 @@ Example input values for the Key Vault module:
 
 ```hcl
 // Required inputs:
-network_resource_group_name = "conto-dev-paperclips-network-rg"
+network_resource_group_name = "conto-dev-pclip-network-rg"
 pe_subnet_name              = "kv-subnet"
-resource_group_name         = "conto-dev-paperclips-rg"
-virtual_network_name        = "conto-dev-paperclips-vnet"
+resource_group_name         = "conto-dev-pclip-rg"
+virtual_network_name        = "conto-dev-pclip-vnet"
 
 // Optional inputs:
 email_receiver               = ["test.user@contoso.com", "8d73ujd73.contoso.onmicrosoft.com@teams.ms"] #teams channel
 environment                  = "dev"
 expire_notification          = true
 kv_number                    = "002"
-log_analytics_workspace_name = "conto-dev-paperclips-law"
-project                      = "paperclips"
+log_analytics_workspace_name = "conto-dev-pclip-law"
+project                      = "pclip"
 
 // See the "## Input arguments and outputs" section for all available options or "variables.tf"
 // If not specified, the default values on "variables.tf" will be applied
