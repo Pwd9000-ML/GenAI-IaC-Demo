@@ -71,4 +71,4 @@ For any questions or feedback, please open an issue or contact us at Contoso [pu
 
 ### _Author_
 
-Marcel Lupo - Follow me on: [GitHub](https://github.com/Pwd9000-ML) | [X/Twitter](https://x.com/pwd9000) | [LinkedIn](https://www.linkedin.com/in/marcel-l-61b0a96b/)
+Marcel Lupo - Follow me on: | [GitHub](https://github.com/Pwd9000-ML) | [X/Twitter](https://x.com/pwd9000) | [LinkedIn](https://www.linkedin.com/in/marcel-l-61b0a96b/)
