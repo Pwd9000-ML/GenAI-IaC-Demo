@@ -14,7 +14,7 @@
 
 This module deploys a Resource Group in Azure. Optionally the module can create two EntraID groups (Reader, Contributor) and assign them to the Resource Group. The supplied UUID owner/s will be added to the Entra ID groups. These owner/s can add and remove members who need `Read` or `Contribute` access to the Resource Group.
 
-[Learn more about Azure Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal/?wt.mc_id=DT-MVP-5004771l)
+[Learn more about Azure Resource Groups at Microsoft Learn](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal/?wt.mc_id=DT-MVP-5004771l)
 
 ## Version History
 
