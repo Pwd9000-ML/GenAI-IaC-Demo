@@ -71,4 +71,4 @@ Like, share, follow me on: :octopus: [GitHub](https://github.com/Pwd9000-ML) | :
 
 ### _Author_
 
-For any questions or feedback, please open an issue or contact us at Contoso [pwd9000@hotmail.co.uk](mailto:pwd9000@hotmail.co.uk).
+For any questions or feedback, please open an issue or contact us at Contoso [pwd9000@hotmail.co.uk](mailto:pwd9000@hotmail.co.uk)
