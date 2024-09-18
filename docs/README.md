@@ -32,6 +32,14 @@ Explore each of Constoso's bespoke modules and detailed documentation on usage i
 - [Module 4: Azure Key Vault](./modules/azurerm-kv.md)
 - [Module 5: Azure Role Assignment](./modules/azurerm-iam.md)
 
+## GitHub Best Practices and Guidelines at Contoso
+
+Check out Contoso's GitHub tutorials to learn more about best practices and guidelines for using GitHub at Contoso:
+
+- [GitHub Pro Tips](./guidelines/github-pro.md)
+- [GitHub Security Best Practices](./guidelines/github-security.md)
+- [GitHub Collaboration Guidelines](./guidelines/github-collaboration.md)
+
 ## Terraform Best Practices and Guidelines at Contoso
 
 Check out Contoso's Terraform tutorials to learn more about best practices and guidelines for using Terraform at Contoso:
