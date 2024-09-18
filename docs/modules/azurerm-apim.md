@@ -274,7 +274,7 @@ variable "keyvault_named_values" {
 variable "location" {
   description = "The default location where the resource will be created"
   type        = string
-  default     = "westeurope"
+  default     = "uksouth"
 }
 
 variable "management_host_name" {
@@ -449,7 +449,7 @@ provider "azurerm" {
 | `identity_type` | Type of Managed Service Identity that should be configured on this API Management Service | `string` | `"SystemAssigned"` | no |
 | `key_vault_name` | Name of the Key Vault where the secrets are read | `string` | `null` | no |
 | `keyvault_named_values` | Map containing the name of the named values as key and value as values. The secret is stored in keyvault | `list(map(string))` | `[]` | no |
-| `location` | The default location where the resource will be created | `string` | `"westeurope"` | no |
+| `location` | The default location where the resource will be created | `string` | `"uksouth"` | no |
 | `management_host_name` | Name for the management portal URL | `string` | `null` | no |
 | `management_hostname_configuration` | List of management hostname configurations | `list(map(string))` | `[]` | no |
 | `management_nsg_rule_priority` | Priority of the NSG rule created for the management port of the APIM | `number` | `101` | no |

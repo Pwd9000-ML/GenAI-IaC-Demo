@@ -334,7 +334,7 @@ variable "key_vault_rbac" {
 variable "location" {
   type        = string
   description = "Specifies the supported Azure location where the resource exists. Changing this forces a new product to be created."
-  default     = "westeurope"
+  default     = "uksouth"
 }
 
 variable "network_interfaces" {
@@ -562,7 +562,7 @@ provider "azurerm" {
 | `http_listeners` | List of HTTP listeners | <pre>list(object({<br>    name                 = string<br>    host_name            = optional(string)<br>    require_sni          = bool<br>    ssl_certificate_name = optional(string)<br>    protocol             = string<br>    frontend_port_number = string<br>  }))</pre> | n/a | yes |
 | `key_vault_name` | The name of the key vault who store the certificate. | `string` | n/a | yes |
 | `key_vault_rbac` | extension tags | `bool` | `true` | no |
-| `location` | Specifies the supported Azure location where the resource exists. Changing this forces a new product to be created. | `string` | `"westeurope"` | no |
+| `location` | Specifies the supported Azure location where the resource exists. Changing this forces a new product to be created. | `string` | `"uksouth"` | no |
 | `network_interfaces` | Required if there are backend\_address\_pools and create\_backend\_nic is set to true. A list of names of network Interfaces that should be created. IE: nic01, nic02, ... in a format of a list of strings. It Needs to be the same number of network\_interfaces as the number of backend\_address\_pools there are configured for the app gateway, and the same number of IPs in the private\_ip\_address\_nic\_association | `list(string)` | `[]` | no |
 | `private_ip` | Not required only if frontend\_config\_private\_ip\_address\_allocation is set to Dynamic. The Private IP Address to use for the Application Gateway. | `string` | n/a | yes |
 | `private_ip_address_allocation` | Required if there are backend\_address\_pools and create\_backend\_nic is set to true. The allocation method used for the Private IP Address in the NIC Association with the Backend Address Pool (only if necessary). Possible values are Dynamic and Static. If Static then private\_ip\_address\_nic\_association (list of Static IPs) needs to be configured | `string` | `"Static"` | no |

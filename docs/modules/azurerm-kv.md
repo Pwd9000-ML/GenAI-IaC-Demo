@@ -200,7 +200,7 @@ variable "kv_number" {
 variable "location" {
   description = "The default location where the core network will be created."
   type        = string
-  default     = "westeurope"
+  default     = "uksouth"
 }
 
 variable "log_analytics_workspace_name" {
@@ -294,7 +294,7 @@ provider "azuread" {}
 | `environment` | The environment. e.g. dev, qa, uat, prod | `string` | `"dev"` | no |
 | `expire_notification` | Send a notification before the secret expires | `bool` | `true` | no |
 | `kv_number` | The use case of the keyvault, to be used in the name. e.g. 001, or 002 | `string` | `"001"` | no |
-| `location` | The default location where the core network will be created | `string` | `"westeurope"` | no |
+| `location` | The default location where the core network will be created | `string` | `"uksouth"` | no |
 | `log_analytics_workspace_name` | The name of the Log Analytics workspace to send diagnostic logs to. | `string` | `null` | no |
 | `network_acls` | Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. Set to `null` to disable. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more information. | `object({ bypass = optional(string, "None"), default_action = optional(string, "Deny"), ip_rules = optional(list(string)), virtual_network_subnet_ids = optional(list(string)) })` | `{}` | no |
 | `network_resource_group_name` | The existing core network resource group name, to get details of the VNET to enable private endpoint. | `string` | n/a | yes |

@@ -133,7 +133,7 @@ variable "environment" {
 variable "location" {
   description = "The location/region where the resource group will be created."
   type        = string
-  default     = "westeurope"
+  default     = "uksouth"
 }
 
 variable "mail_enabled" {
@@ -178,7 +178,7 @@ provider "azuread" {}
 |------|-------------|------|---------|:--------:|
 | `create_default_groups` | Create default AAD groups to associate with the Resource Group e.g. Reader, Contributor | `bool` | `false` | no |
 | `environment` | The environment. e.g. dev, qa, uat, prod | `string` | `"dev"` | no |
-| `location` | The location/region where the resource group will be created. | `string` | `"westeurope"` | no |
+| `location` | The location/region where the resource group will be created. | `string` | `"uksouth"` | no |
 | `mail_enabled` | Are the Entra ID groups mail enabled? | `bool` | `false` | no |
 | `owners` | The owner/s of the Entra ID groups to associate with the Resource Group. Value must be a valid UUID | `list(string)` | `[]` | no |
 | `project` | The name of the project. e.g. prj | `string` | n/a | yes |
