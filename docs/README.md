@@ -67,8 +67,8 @@ Explore additional resources and best practices guides for building and managing
 
 ## _Contact_
 
-Like, share, follow me on: :octopus: [GitHub](https://github.com/Pwd9000-ML) | :penguin: [X/Twitter](https://x.com/pwd9000) | :space_invader: [LinkedIn](https://www.linkedin.com/in/marcel-l-61b0a96b/)
+For any questions or feedback, please open an issue or contact us at Contoso [pwd9000@hotmail.co.uk](mailto:pwd9000@hotmail.co.uk)
 
 ### _Author_
 
-For any questions or feedback, please open an issue or contact us at Contoso [pwd9000@hotmail.co.uk](mailto:pwd9000@hotmail.co.uk)
+Like, share, follow me on: :octopus: [GitHub](https://github.com/Pwd9000-ML) | :penguin: [X/Twitter](https://x.com/pwd9000) | :space_invader: [LinkedIn](https://www.linkedin.com/in/marcel-l-61b0a96b/)
