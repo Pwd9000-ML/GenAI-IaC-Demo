@@ -1,69 +1,135 @@
-| **Build Status** | **Latest Version** | **Date** |
-|:-----------------|:-------------------|:---------|
-| [![Build Status](https://dev.azure.com/Axpo-AXSO/TIM-INFRA-MODULES/_apis/build/status%2FProd_Branch_Testing%2Fazurerm_rbac_administration?repoName=azurerm_rbac_administration&branchName=main)](https://dev.azure.com/Axpo-AXSO/TIM-INFRA-MODULES/_build/latest?definitionId=2378&repoName=azurerm_rbac_administration&branchName=main) | **v1.0.10** | **25/08/2024** |
+# Contoso Role Assignment (IAM) Module
 
-To see more available Axso services please see **[Production Ready Services](https://dev.azure.com/Axpo-AXSO/TIM-INFRA-MODULES/_wiki/wikis/Axso%20Terraform%20Self%20Service/3912/PRODUCTION.SERVICES)** or **[Production Ready Blueprints](https://dev.azure.com/Axpo-AXSO/TIM-INFRA-MODULES/_wiki/wikis/Axso%20Terraform%20Self%20Service/3911/PRODUCTION.BLUEPRINTS)**  
+## Table of Contents
 
-# INDEX
-----------------------------
+1. [Overview](#overview)
+2. [Version History](#version-history)
+3. [Deployed Resources](#deployed-resources)
+4. [Pre-requisites](#pre-requisites)
+5. [Contoso Naming Convention](#contoso-naming-convention)
+6. [Examples](#examples)
+7. [Input arguments and outputs](#input-arguments-and-outputs)
 
-1. [Resource Configuration](#resource-configuration)
-2. [Terraform Files](#terraform-files)
-3. [Input Description](#input-description)
-
-# [RBAC Administration Configuration](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal)
-----------------------------
-
-## Service Description
-----------------------------
+## Overview
 
 Azure Role Assignment grants users, groups, or applications access to Azure resources. It involves associating a security principal (user, group, or application) with a specific role definition and a scope (a resource group, subscription, or resource). This determines what actions the security principal can perform on the specified resources.
 
 This module will:
 
-- Grant a specific role over a scope to a Service Principal, Managed Identity, User or Group.
+- Grant a specific role over a scope to a Service Principal, Managed Identity, User, or Group.
+
+[Learn more about Role-Based Access Control at Microsoft Learn](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal/?wt.mc_id=DT-MVP-5004771)
+
+## Version History
+
+| **Version** | **Date** | **Description** |
+|:------------|:---------|:----------------|
+| **v1.0.4**  | 25/08/2024 | Initial release with basic IAM functionalities. |
+| **v1.0.2**  | 15/07/2024 | Added support for Managed Identities. |
+| **v1.0.1**  | 05/06/2024 | Improved error handling and logging. |
+| **v1.0.0**  | 25/05/2024 | Updated documentation and examples. |
+
+## Deployed Resources
+
+---------------------------;
+
+The following resources will be deployed when using Contoso's Role Assignment (IAM) Module:
+
+- azurerm_role_assignment
 
 ## Pre-requisites
-----------------
 
-- User, Group, Service Principal or Managed Identity.
-- Target resource ID.
+----------------------------;
 
+Make sure to update the Terraform versions and providers according to your specific needs.
 
-# Terraform Files
-----------------------------
+- **Minimum Terraform version:** >= 1.8.0
+- **AzureRM provider version:** ~> 4.0.1
 
-## module.tf
+Before deploying Contoso's IAM module, ensure the following Azure resources are in place:
+
+- **User, Group, Service Principal, or Managed Identity (required)**: The security principal to which the role will be assigned.
+- **Target Resource ID (required)**: The ID of the resource to which the role will be assigned.
+
+## Contoso Naming Convention
+
+----------------------------;
+
+There is no specific naming convention for this module because the module is not creating any resources. It is only assigning roles to existing resources in Azure using the Azure RBAC/IAM.
+
+## Examples
+
+----------------------------;
+
+### module.tf
+
+Module usage example:
 
 ```hcl
 module "role-assignment" {
-  source            = "git::ssh://git@ssh.dev.azure.com/v3/Axpo-AXSO/TIM-INFRA-MODULES/azurerm_rbac_administration?ref=v1.0.10" 
-  azure_rbac_config = local.azure_rbac_config
+  source              = "git::ssh://git@ssh.dev.azure.com/v3/Contoso/Contoso-Modules/azurerm_role_assignments?ref=v1.0.4"
+  azure_iam_config    = var.azure_iam_config
 }
 ```
 
-## locals.tf
-  
+## module.tf.tfvars
+
+Example input values for the Role Assignment module:
+
 ```hcl
-locals {
-  azure_rbac_config = [
+// Required inputs:
+azure_iam_config = [
     {
-      description          = "Example - Azure RBAC permission on existing Resource Group"
-      scope                = "/subscriptions/77116f35-6e77-4f5f-b82f-49e50812cc75/resourceGroups/axso-np-appl-ssp-test-rg/providers/Microsoft.KeyVault/vaults/kv-ssp-0-nonprod-axso"    #Retrieve the ID of the resource to apply permissions to (e.g. Resource Group, Key Vault, Storage Account, etc.)
-      role_definition_name = "Contributor"    # The name of the role definition to assign to the principal (e.g.Contributor, Reader, etc.)
-      principal_id         = "b113fx90-da78-49b8-8830-e3a8bffbe650"   #The ID of the principal to assign to the role definition (e.g. Azure AD Group, Service Principal, User etc.)
+      description          = "Example - Azure IAM permission on Subscription"
+      scope                = "/subscriptions/00000000-0000-0000-0000-000000000000"
+      role_definition_name = "Contributor"
+      principal_id         = "00000000-0000-0000-0000-000000000000"
     },
     {
-      description          = "Example - Azure RBAC permission on existing KeyVault"
-      scope                = "/subscriptions/77116f35-6e77-4f5f-b82f-49e50812cc75/resourceGroups/axso-np-appl-ssp-test-rg/providers/Microsoft.KeyVault/vaults/kv-ssp-0-nonprod-axso"    #Retrieve the ID of the resource to apply permissions to (e.g. Resource Group, Key Vault, Storage Account, etc.)
-      role_definition_name = "Owner"    # The name of the role definition to assign to the principal (e.g.Contributor, Reader, etc.)
-      principal_id         = "b113fx90-da78-49b8-8830-e3a8bffbe650"   #The ID of the principal to assign to the role definition (e.g. Azure AD Group, Service Principal, User etc.)
+      description          = "Example - Azure IAM permission on Resource Group"
+      scope                = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup"
+      role_definition_name = "Contributor"
+      principal_id         = "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      description          = "Example - Azure IAM permission on Resource (VM)"
+      scope                = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM"
+      role_definition_name = "Contributor"
+      principal_id         = "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      description          = "Example - Azure IAM permission on Management Group"
+      scope                = "/providers/Microsoft.Management/managementGroups/myMG"
+      role_definition_name = "Contributor"
+      principal_id         = "00000000-0000-0000-0000-000000000000"
     }
-  ]
-}
+]
+
+// Optional inputs:
+// None
 ```
 
-## main.tf
+### variables.tf
+
+Example input values for the IAM module variables:
+
+```hcl
+// Required Inputs
+
+variable "azure_iam_config" {
+  description = "Azure IAM role assignment (permissions) configuration."
+  type = list(object({
+    description          = string
+    scope                = string
+    role_definition_name = string
+    principal_id         = string
+  }))
+}
+
+// Optional inputs - None
+```
+
+### main.tf
 
 ```hcl
 terraform {
@@ -72,48 +138,22 @@ terraform {
 
 provider "azurerm" {
   features {}
+  resource_provider_registrations = "none"
 }
-
-provider "azuread" {}
 ```
 
-----------------------------
+## Input arguments and outputs
 
-# Input Description
+----------------------------;
 
-<!-- BEGIN_TF_DOCS -->
-## Requirements
-
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.8.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 4.0.1 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 4.0.1 |
-
-## Modules
-
-No modules.
-
-## Resources
-
-| Name | Type |
-|------|------|
-| [azurerm_role_assignment.rbac](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_azure_rbac_config"></a> [azure\_rbac\_config](#input\_azure\_rbac\_config) | Azure RBAC role assignment (permissions) configuration. | <pre>list(object({<br>    description          = string<br>    scope                = string<br>    role_definition_name = string<br>    principal_id         = string<br>  }))</pre> | <pre>[<br>  {<br>    "description": "Example - Azure RBAC permision on Subscription",<br>    "principal_id": "00000000-0000-0000-0000-000000000000",<br>    "role_definition_name": "Contributor",<br>    "scope": "/subscriptions/00000000-0000-0000-0000-000000000000"<br>  },<br>  {<br>    "description": "Example - Azure RBAC permision on Resource Group",<br>    "principal_id": "00000000-0000-0000-0000-000000000000",<br>    "role_definition_name": "Contributor",<br>    "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup"<br>  },<br>  {<br>    "description": "Example - Azure RBAC permision on Resource",<br>    "principal_id": "00000000-0000-0000-0000-000000000000",<br>    "role_definition_name": "Contributor",<br>    "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM"<br>  },<br>  {<br>    "description": "Example - Azure RBAC permision on Management Group",<br>    "principal_id": "00000000-0000-0000-0000-000000000000",<br>    "role_definition_name": "Contributor",<br>    "scope": "/providers/Microsoft.Management/managementGroups/myMG"<br>  }<br>]</pre> | no |
+| `azure_iam_config` | Azure IAM role assignment (permissions) configuration. | `list(object({ description = string, scope = string, role_definition_name = string, principal_id = string }))` | [<br>  {<br>    description = "Example - Azure IAM permission on Subscription",<br>    principal_id = "00000000-0000-0000-0000-000000000000",<br>    role_definition_name = "Contributor",<br>    scope = "/subscriptions/00000000-0000-0000-0000-000000000000"<br>  },<br>  {<br>    description = "Example - Azure IAM permission on Resource Group",<br>    principal_id = "00000000-0000-0000-0000-000000000000",<br>    role_definition_name = "Contributor",<br>    scope = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup"<br>  },<br>  {<br>    description = "Example - Azure IAM permission on Resource",<br>    principal_id = "00000000-0000-0000-0000-000000000000",<br>    role_definition_name = "Contributor",<br>    scope = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM"<br>  },<br>  {<br>    description = "Example - Azure IAM permission on Management Group",<br>    principal_id = "00000000-0000-0000-0000-000000000000",<br>    role_definition_name = "Contributor",<br>    scope = "/providers/Microsoft.Management/managementGroups/myMG"<br>  }<br>] | no |
 
-## Outputs
+### Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_role_assignment_ids"></a> [role\_assignment\_ids](#output\_role\_assignment\_ids) | The Role Assignment IDs. |
-<!-- END_TF_DOCS -->
+| `role_assignment_ids` | The Role Assignment IDs. |
