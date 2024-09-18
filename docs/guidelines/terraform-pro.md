@@ -717,7 +717,7 @@ It allows us to be more creative and granular with Terraform configurations by a
 
 The example code used in the following section can also be found here: [05_lookup_demo](https://github.com/Pwd9000-ML/Azure-Terraform-Deployments/tree/master/05_lookup_demo).
 
-Say for example we have to create Azure cloud resources for multiple sites of our organization. In the following example we will use **Site A** in _UK South_ and **Site B** in _UK West_ as two separate sites for our Org.
+Say for example we have to create Azure cloud resources for multiple sites of our organisation. In the following example we will use **Site A** in _UK South_ and **Site B** in _UK West_ as two separate sites for our Org.
 
 We start off by creating a list of sites in a variable for **siteA** and **siteB**:
 
@@ -1551,7 +1551,7 @@ variable "os_type" {
 }
 ```
 
-In the example above, we utilize the `contains` function to validate whether the `os_type` falls within `[Windows, Linux]`. If a user enters an OS type out of this list, Terraform will display the error message, preventing potential confusion or failure in deployments.
+In the example above, we utilise the `contains` function to validate whether the `os_type` falls within `[Windows, Linux]`. If a user enters an OS type out of this list, Terraform will display the error message, preventing potential confusion or failure in deployments.
 
 Similarly, you might want to implement a naming convention for a **resource group** in Azure. For example, the name must always start with a **'rg-'** prefix. Terraform validation can assist here:
 

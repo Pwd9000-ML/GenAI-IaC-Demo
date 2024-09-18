@@ -44,7 +44,7 @@ Make sure to update the Terraform versions and providers according to your speci
 
 Before deploying Contoso's Application Gateway module, ensure the following Azure resources are in place:
 
-- **Resource Group (required)**: Essential for organizing and managing related Azure resources.
+- **Resource Group (required)**: Essential for organising and managing related Azure resources.
 - **Virtual Network (required)**: Provides network isolation and security for the Application Gateway instance.
 - **Delegated Subnet (required)**: A subnet within the virtual network to host the Application Gateway instance. Recommended size is /24.
 - **KeyVault (required)**: Securely stores and manages sensitive information such as SSL certificates.

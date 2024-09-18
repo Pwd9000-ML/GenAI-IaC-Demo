@@ -1,22 +1,26 @@
-# Welcome to the GenAI-IaC-Demo Wiki
+# Contoso Terraform Modules and Best Practices Documentation
+
+This repository contains the documentation for Contoso's bespoke Terraform modules and best practices for managing Azure resources. The documentation provides detailed information on how to use each module, including examples, input variables, and outputs.
 
 ## Overview
 
-Welcome to the GenAI-IaC-Demo! This project demonstrates how you can leverage Generative AI to accelerate the development of bespoke Terraform modules. By integrating Azure AI Studio, we aim to boost Infrastructure as Code (IaC) productivity and streamline your documentation process. Also helps in understanding the Terraform configurations.
+This repository usecase is to demonstrate how you can leverage Generative AI to accelerate the development of bespoke IaC (Infrastructure as Code) Data and Documentation for Terraform modules and best practises for a fictional company called Contoso. The repository contains detailed documentation for each of Contoso's bespoke Terraform modules, including input arguments, outputs, naming conventions, security considerations, and examples of usage. It also provides guidelines and best practices for managing Azure resources using Terraform.  
 
-In this demo, you will see how non-Terraform consumers of the modules can use an AI assistant to help them interpret the code and documentation. The AI assistant can provide detailed explanations, generate examples of usage, and offer insights into the Terraform configurations. This makes it easier for users of all skill levels to understand and utilize the Terraform modules effectively.
+By integrating the documentation with Azure AI Studio, we aim to boost Infrastructure as Code (IaC) productivity and streamline your documentation process. Also helps in understanding the Terraform configurations better and generate examples of usage based on the bespoke IaC data and documentation.  
 
-By harnessing the power of Azure AI Studio and private IaC data and documentation, we can create comprehensive and user-friendly AI assistants, ensuring that everyone can benefit, learn and understand private custom created Terraform modules.
+In this demo, you will see how non-Terraform users of the modules can use an AI assistant in this way to help them interpretate the code and documentation. The AI assistant can provide detailed explanations, generate examples of usage, and offer insights into the Terraform configurations. This makes it easier for users of all skill levels to understand and utilise the Terraform modules effectively.  
+
+By harnessing the power of Azure AI Studio and private IaC data and documentation, we can create comprehensive and user-friendly AI assistants, ensuring that everyone can benefit, learn and understand private custom-created Terraform modules.
 
 ## What You'll Learn
 
 In this demo, you will learn how to:
 
 - How to get started with Azure AI Studio using your own data and documentation (Specifically IaC).
-- How to create an AI assistant to interpret and explain Terraform modules and documentation.
-- Use Generative AI as assistant to interpret, create and manage Terraform modules from bespoke IaC data and documentation.
+- How to create an AI assistant to interpretate and explain Terraform modules and documentation.
+- Use Generative AI as assistant to interpretate, create and manage Terraform modules from bespoke IaC data and documentation.
 - Innovatively use AI to boost IaC productivity and streamline processes.
-- How to use AI to help users understand and utilize Terraform modules effectively and generate examples of usage based on the bespoke IaC data and documentation.
+- How to use AI to help users understand and utilise Terraform modules effectively and generate examples of usage based on the bespoke IaC data and documentation.
 
 ## Contoso Modules
 

@@ -49,7 +49,7 @@ Make sure to update the Terraform versions and providers according to your speci
 
 Before deploying Contoso's APIM module, ensure the following Azure resources are in place:
 
-- **Resource Group (required)**: Essential for organizing and managing related Azure resources.
+- **Resource Group (required)**: Essential for organising and managing related Azure resources.
 - **Virtual Network (required)**: Provides network isolation and security for the APIM instance.
 - **Delegated Subnet (required)**: A subnet with an address space of /28 or larger within the virtual network to host the APIM instance.
 - **NSG (required)**: Network Security Groups associated with the subnet to control inbound and outbound traffic, enhancing security.
