@@ -39,13 +39,13 @@ The following resources will be deployed when using Contoso's Resource Group Mod
 
 Make sure to update the Terraform versions and providers according to your specific needs.
 
-- **Minimum Terraform version:** ~> 1.8.0
+- **Minimum Terraform version:** >= 1.8.0
 - **AzureRM provider version:** ~> 4.2.0
-- **AzureAD provider version:** ~> 2.47.0
+- **AzureAD provider version:** ~> 2.53.1
 
 Before deploying Contoso's Resource Group module, ensure the following Azure resources are in place:
 
-- **Azure Subscription**: The subscription where the Resource Group will be created.
+- **Azure Subscription (required)**: The subscription where the Resource Group will be created.
 
 ## Contoso Naming convention
 
@@ -57,10 +57,12 @@ Contoso's naming convention for the resource group follows a structured format t
 Additionally two EntraID groups will be created and assigned to the Resource Group:
 
 **Construct:** `"conto-entra-${var.environment}-${var.project}-reader"`  
-**Example Naming:** `conto-entra-dev-prj-reader`  
+**Example Naming:** `conto-entra-dev-prj-reader`
+**Role:** `Reader`
 
 **Construct:** `"conto-entra-${var.environment}-${var.project}-contributor"`  
-**Example Naming:** `conto-entra-dev-prj-contributor`  
+**Example Naming:** `conto-entra-dev-prj-contributor`
+**Role:** `Contributor`
 
 ## Examples
 

@@ -40,7 +40,7 @@ The following resources will be deployed when using Contoso's Role Assignment (I
 Make sure to update the Terraform versions and providers according to your specific needs.
 
 - **Minimum Terraform version:** >= 1.8.0
-- **AzureRM provider version:** ~> 4.0.1
+- **AzureRM provider version:** ~> 4.2.0
 
 Before deploying Contoso's IAM module, ensure the following Azure resources are in place:
 

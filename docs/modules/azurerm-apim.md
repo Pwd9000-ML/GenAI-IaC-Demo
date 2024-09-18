@@ -29,7 +29,7 @@ You can configure the named values as you want.
 
 ## Deployed Resources
 
-The following resources will be deployed when using Contoso's APIM module.
+The following resources will be deployed when using Contoso's APIM module:
 
 - azurerm_api_management  
 - azurerm_network_security_rule  
@@ -98,10 +98,10 @@ Example input values for the APIM module variables:
 
 ```hcl
 // Required inputs:
-resource_group_name                 = "conto-dev-project-rg"
+resource_group_name                 = "conto-dev-paperclips-rg"
 subnet_names                        = ["apim"]
-virtual_network_resource_group_name = "conto-dev-project-network-rg"
-nsg_name                            = "conto-dev-project-apim-nsg"
+virtual_network_resource_group_name = "conto-dev-paperclips-network-rg"
+nsg_name                            = "conto-dev-paperclips-apim-nsg"
 publisher_name                      = "Contoso ApiManager"
 backend_services                    = ["admin-services-api", "user-services-api"]
 

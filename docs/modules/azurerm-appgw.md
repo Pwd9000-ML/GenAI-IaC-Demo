@@ -39,8 +39,8 @@ The following resources will be deployed when using Contoso's Application Gatewa
 Make sure to update the Terraform versions and providers according to your specific needs.
 
 - **Minimum Terraform version:** >= 1.8.0
-- **TLS provider version:** = 4.0.5
-- **AzureRM provider version:** ~> 4.0.1
+- **TLS provider version:** >= 4.0.5
+- **AzureRM provider version:** ~> 4.2.0
 
 Before deploying Contoso's Application Gateway module, ensure the following Azure resources are in place:
 
@@ -97,10 +97,10 @@ Example input values for the Application Gateway module variables:
 
 ```hcl
 // Required inputs:
-resource_group_name                 = "conto-dev-prj-rg"
-key_vault_name                      = "conto-dev-prj-kv"
-virtual_network_resource_group_name = "conto-dev-prj-network-rg"
-vnet_name                           = "conto-dev-prj-vnet"
+resource_group_name                 = "conto-dev-paperclips-rg"
+key_vault_name                      = "conto-dev-paperclips-kv"
+virtual_network_resource_group_name = "conto-dev-paperclips-network-rg"
+vnet_name                           = "conto-dev-paperclips-vnet"
 subnet_name                         = "appgw-subnet"
 waf_enabled                         = true
 private_ip                          = "10.0.2.10"

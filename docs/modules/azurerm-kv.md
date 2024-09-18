@@ -1,168 +1,158 @@
-| **Build Status** | **Latest Version** | **Date** |
-|:---------------- |:-------------------|:---------|
-| [![Build Status](https://dev.azure.com/Axpo-AXSO/TIM-INFRA-MODULES/_apis/build/status%2FProd_Branch_Testing%2Fazurerm_key_vault?branchName=main)](https://dev.azure.com/Axpo-AXSO/TIM-INFRA-MODULES/_build/latest?definitionId=2423&branchName=main) | **v2.3.1** | 24/08/2024 |
+# Contoso Key Vault Module
 
-To see more available Axso services please see **[Production Ready Services](https://dev.azure.com/Axpo-AXSO/TIM-INFRA-MODULES/_wiki/wikis/Axso%20Terraform%20Self%20Service/3912/PRODUCTION.SERVICES)** or **[Production Ready Blueprints](https://dev.azure.com/Axpo-AXSO/TIM-INFRA-MODULES/_wiki/wikis/Axso%20Terraform%20Self%20Service/3911/PRODUCTION.BLUEPRINTS)**  
+## Table of Contents
 
-# INDEX
-----------------------------
+1. [Overview](#overview)
+2. [Version History](#version-history)
+3. [Deployed Resources](#deployed-resources)
+4. [Pre-requisites](#pre-requisites)
+5. [Contoso Naming Convention](#contoso-naming-convention)
+6. [Examples](#examples)
+7. [Input arguments and outputs](#input-arguments-and-outputs)
 
-1. [Resource Configuration](#resource-configuration)
-2. [Terraform Files](#terraform-files)
-3. [Input Description](#input-description)
+## Overview
 
-# Keyvault Configuration
-----------------------------
+This module deploys a Key Vault in Azure with a private endpoint. It gives you the option to add Entra ID groups as admins (Key Vault Administrator) and readers (Key Vault Secrets User, Key Vault Reader) of the Key Vault. You can add a secret expiry notification to receive an e-mail alert one month before the secret expires.
 
-## Service Description
-----------------------------
-This module deploys a Keyvault in Azure with a private endpoint. It give you the option to add groups as admins (Key Vault Administrator) and readers(Key Vault Secrets User,Key Vault Reader) of they keyvault
-You can add a secret expiry notification to receive an alert one month before the secret expires.
+[Learn more about Azure Key Vault at Microsoft Learn](https://learn.microsoft.com/en-us/azure/key-vault/?wt.mc_id=DT-MVP-5004771)
 
-## Deployed Resources:
-----------------------------
+## Version History
 
-These all resources will be deployed when using Keyvault module.
+| **Version** | **Date** | **Description** |
+|:------------|:---------|:----------------|
+| **v2.3.1**  | 24/08/2024 | Removed unnecessary outputs. |
+| **v2.3.0**  | 10/08/2024 | Added support for secret expiry notifications. |
+| **v2.2.0**  | 01/08/2024 | Improved private endpoint configuration. |
+| **v2.1.0**  | 15/07/2024 | Updated dependencies and fixed deprecation warnings. |
+| **v2.0.0**  | 01/07/2024 | Major release with new features and improvements. |
 
-- azurerm_key_vault: Manages a keyvault
-- azurerm_private_endpoint: Create the private endpoint for the keyvault
-- azurerm_monitor_scheduled_query_rules_alert_v2: Create the alert rule if you want to be notified when a secret is about to expire.
-- azurerm_monitor_action_group: Create the action group, which will include the emails to notify
+## Deployed Resources
+
+The following resources will be deployed when using the Key Vault module:
+
+- azurerm_key_vault
+- azurerm_private_endpoint
+- azurerm_monitor_action_group
+- azurerm_monitor_diagnostic_setting (optional - if `log_analytics_workspace_name` is set)
+- azurerm_monitor_scheduled_query_rules_alert_v2 (optional - if `expire_notification` is set to `true`)
+- azurerm_role_assignment 
 
 ## Pre-requisites
-----------------
 
-- Resource Group
-- Virtual Network
-- Long Analytics Workspace (Optional)
+Make sure to update the Terraform versions and providers according to your specific needs.
 
-## Axso Naming convention example
+- **Minimum Terraform version:** >= 1.8.0
+- **AzureRM provider version:** ~> 4.2.0
+- **AzureAD provider version:** ~> 2.53.1
 
-The below example will create an **Azure KeyVAULT** for the project **project** in the **nonprod** subscription: `"axso-dev-project-kv-001"`. The 001 is created in base of the kv_number
+Before deploying the Key Vault module, ensure the following Azure resources are in place:
 
-**CL-AXSO-AZ-APPL-TEST-admin** group will be assigned to the Key vault as Key Vault Administrator and **CL-AXSO-AZ-APPL-TEST-readers** group will be assigned to the Keyvault as `Key Vault Reader` and `Key Vault Secrets User`. If you need more information about the RBAC roles in azure, visit [Azure Keyvault RBAC](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide?tabs=azure-cli)
+- **Resource Group (required)**: The resource group that contains the Key Vault.
+- **Virtual Network (required)**: The virtual network where the private endpoint will be created.
+- **Log Analytics Workspace (optional)** : Required if you want to send diagnostic logs to Log Analytics.
 
-The keyvault created in the example, will have only private access
+## Contoso Naming convention
 
-# Terraform Files
-----------------------------
+Contoso's naming convention for the key vault module follows a structured format to ensure consistency and clarity across resources. The naming convention is derived from the following variables `environment` and `project` in addition to the there is a `kv_number` variable to differentiate between the key vaults.
 
-## module.tf
+**Construct:** `"conto-${var.environment}-${var.project}-kv-${var.kv_number}"`
+**Example Naming:** `conto-dev-prj-kv-001`
+
+Additionally two Entra ID groups will be created and assigned to the Key Vault:
+
+**Construct:** `"conto-entra-${var.environment}-${var.project}-Admin"`
+**Example Naming:** `conto-entra-dev-prj-Admin`
+**Role:** `Key Vault Administrator`
+
+**Construct:** `"conto-entra-${var.environment}-${var.project}-Reader"`
+**Example Naming:** `conto-entra-dev-prj-Reader`
+**Role:** `Key Vault Reader, Key Vault Secrets User`
+
+## Examples
+
+### module.tf
+
+Module usage example:
 
 ```hcl
+module "key_vault" {
+  source                        = "git::ssh://git@ssh.dev.azure.com/v3/Contoso/Contoso-Modules/azurerm_api_management?ref=v2.3.1"
 
-module "axso_key_vault" {
-  source                        = "git::ssh://git@ssh.dev.azure.com/v3/Axpo-AXSO/TIM-INFRA-MODULES/azurerm_key_vault?ref=v2.3.1"
-  project_name                  = var.project_name
-  environment                   = var.environment
-  kv_number                     = var.kv_number
-  location                      = var.location
-  resource_group_name           = var.resource_group_name
-  public_network_access_enabled = var.public_network_access_enabled
+  // Required inputs:
   network_resource_group_name   = var.network_resource_group_name
-  virtual_network_name          = var.virtual_network_name
   pe_subnet_name                = var.pe_subnet_name
-  log_analytics_workspace_name  = var.log_analytics_workspace_name
-  expire_notification           = var.expire_notification
+  resource_group_name           = var.resource_group_name
+  virtual_network_name          = var.virtual_network_name
+
+  // Optional inputs:
   email_receiver                = var.email_receiver
-}
+  environment                   = var.environment
+  expire_notification           = var.expire_notification
+  kv_number                     = var.kv_number
+  log_analytics_workspace_name  = var.log_analytics_workspace_name
+  project                       = var.project
 
+  //See the "## Input arguments and outputs" section for all available options or "variables.tf"
+  // If not specified, the default values on "variables.tf" will be applied
+}
 ```
 
-## keyvault.tfvars
+### module.tf.tfvars
+
+Example input values for the Key Vault module:
 
 ```hcl
-subscription        = "np"
-environment         = "dev"
-project_name        = "prj"
-location            = "westeurope"
-resource_group_name = "axso-np-appl-ssp-test-rg"
-kv_number           = "001"
+// Required inputs:
+network_resource_group_name = "conto-dev-paperclips-network-rg"
+pe_subnet_name              = "kv-subnet"
+resource_group_name         = "conto-dev-paperclips-rg"
+virtual_network_name        = "conto-dev-paperclips-vnet"
 
-virtual_network_name          = "vnet-ssp-nonprod-axso-vnet"
-pe_subnet_name                = "kv-subnet"
-network_resource_group_name   = "axso-np-appl-ssp-test-rg"
-public_network_access_enabled = false
-
-log_analytics_workspace_name = "axso-np-appl-cloudinfra-dev-loga"
+// Optional inputs:
+email_receiver               = ["test.user@contoso.com", "8d73ujd73.contoso.onmicrosoft.com@teams.ms"] #teams channel
+environment                  = "dev"
 expire_notification          = true
-email_receiver               = ["mario.martinezdiez@axpo.com", "2a8e6d57.axpogrp.onmicrosoft.com@ch.teams.ms"] #Teams channel email
+kv_number                    = "002"
+log_analytics_workspace_name = "conto-dev-paperclips-law"
+project                      = "paperclips"
 
-
+// See the "## Input arguments and outputs" section for all available options or "variables.tf"
+// If not specified, the default values on "variables.tf" will be applied
 ```
 
-## variables.tf
+### variables.tf
+
+Example variable definitions for the Key Vault module:
 
 ```hcl
+// Required Inputs
 
-variable "location" {
+variable "network_resource_group_name" {
+  description = "The existing core network resource group name, to get details of the VNET to enable private endpoint."
   type        = string
-  description = "The default location where the core network will be created"
-  default     = "westeurope"
-}
-
-variable "project_name" {
-  type        = string
-  description = "The name of the project. e.g. MDS"
-  default     = "prj"
-}
-
-variable "subscription" {
-  type        = string
-  description = "The subscription type e.g. 'prod' or 'nonprod'"
-  default     = "np"
-}
-
-variable "environment" {
-  type        = string
-  description = "The environment. e.g. dev, qa, uat, prod"
-  default     = "dev"
-}
-
-variable "kv_number" {
-  type        = string
-  description = "The use case of the keyvault, to be used in the name. e.g. 001, or 002"
-  default     = "001"
-}
-
-variable "resource_group_name" {
-  type        = string
-  description = "The name of the resource group that contains the key vault"
-}
-
-# Private endpoint (used in data block to get subnet ID)
-variable "virtual_network_name" {
-  type        = string
-  description = "Virtual network name for the enviornment to enable private endpoint."
 }
 
 variable "pe_subnet_name" {
-  type        = string
   description = "The subnet name, used in data source to get subnet ID, to enable the private endpoint."
-}
-
-variable "network_resource_group_name" {
   type        = string
-  description = "The existing core network resource group name, to get details of the VNET to enable  private endpoint."
 }
 
-variable "public_network_access_enabled" {
-  description = "Whether the Key Vault is available from public network."
-  type        = bool
-  default     = false
-}
-
-variable "expire_notification" {
-  description = "Send a notification before the secret expires"
-  type        = bool
-  default     = true
-
-}
-
-variable "log_analytics_workspace_name" {
-  description = "The name of the Log Analytics workspace to send diagnostic logs to."
+variable "resource_group_name" {
+  description = "The name of the resource group that contains the Key Vault."
   type        = string
-  default     = null
+}
+
+variable "virtual_network_name" {
+  description = "Virtual network name for the environment to enable private endpoint."
+  type        = string
+}
+
+// Optional Inputs
+
+variable "admin_groups" {
+  description = "Name of the groups that can do all operations on all keys, secrets and certificates."
+  type        = list(string)
+  default     = []
 }
 
 variable "email_receiver" {
@@ -171,21 +161,108 @@ variable "email_receiver" {
   default     = []
 }
 
+variable "enabled_for_deployment" {
+  description = "Whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the Key Vault."
+  type        = bool
+  default     = false
+}
+
+variable "enabled_for_disk_encryption" {
+  description = "Whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys."
+  type        = bool
+  default     = false
+}
+
+variable "enabled_for_template_deployment" {
+  description = "Whether Azure Resource Manager is permitted to retrieve secrets from the Key Vault."
+  type        = bool
+  default     = false
+}
+
+variable "environment" {
+  description = "The environment. e.g. dev, qa, uat, prod."
+  type        = string
+  default     = "dev"
+}
+
+variable "expire_notification" {
+  description = "Send a notification before the secret expires."
+  type        = bool
+  default     = true
+}
+
+variable "kv_number" {
+  description = "The use case of the keyvault, to be used in the name. e.g. 001, or 002."
+  type        = string
+  default     = "001"
+}
+
+variable "location" {
+  description = "The default location where the core network will be created."
+  type        = string
+  default     = "westeurope"
+}
+
+variable "log_analytics_workspace_name" {
+  description = "The name of the Log Analytics workspace to send diagnostic logs to."
+  type        = string
+  default     = null
+}
+
+variable "network_acls" {
+  description = "Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. Set to `null` to disable. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more information."
+  type = object({
+    bypass                     = optional(string, "None")
+    default_action             = optional(string, "Deny")
+    ip_rules                   = optional(list(string))
+    virtual_network_subnet_ids = optional(list(string))
+  })
+  default = {}
+}
+
+variable "project" {
+  description = "The name of the project. e.g. prj."
+  type        = string
+  default     = "prj"
+}
+
+variable "public_network_access_enabled" {
+  description = "Whether the Key Vault is available from public network."
+  type        = bool
+  default     = false
+}
+
+variable "reader_groups" {
+  description = "Name of the groups that can read all keys, secrets, and certificates."
+  type        = list(string)
+  default     = []
+}
+
+variable "sku_name" {
+  description = "The Name of the SKU used for this Key Vault. Possible values are 'standard' and 'premium'."
+  type        = string
+  default     = "standard"
+}
+
+variable "soft_delete_retention_days" {
+  description = "The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days."
+  type        = number
+  default     = 7
+}
+
 variable "webhook_receiver" {
+  description = "List of webhook receivers for secret expire notification."
   type = list(object({
-    name        = string,
+    name        = string
     service_uri = string
   }))
   default = []
-
 }
-
 ```
 
-## main.tf
+### main.tf
 
 ```hcl
-
 terraform {
   backend "azurerm" {}
 }
@@ -197,91 +274,44 @@ provider "azurerm" {
       recover_soft_deleted_key_vaults = true
     }
   }
-  skip_provider_registration = true
+  resource_provider_registrations = "none"
 }
 
 provider "azuread" {}
-
-
 ```
 
-----------------------------
+## Input arguments and outputs
 
-# Input Description
-
-
-
-<!-- BEGIN_TF_DOCS -->
-## Requirements
-
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.8.0 |
-| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~> 2.53.1 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 4.0.1 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | ~> 2.53.1 |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 4.0.1 |
-
-## Modules
-
-No modules.
-
-## Resources
-
-| Name | Type |
-|------|------|
-| [azurerm_key_vault.keyvault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault) | resource |
-| [azurerm_monitor_action_group.monitor_action_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_action_group) | resource |
-| [azurerm_monitor_diagnostic_setting.monitor_diagnostic_setting](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting) | resource |
-| [azurerm_monitor_scheduled_query_rules_alert_v2.monitor_scheduled_query_rules_alert_v2](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_scheduled_query_rules_alert_v2) | resource |
-| [azurerm_private_endpoint.private_endpoint](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_endpoint) | resource |
-| [azurerm_role_assignment.rbac_keyvault_administrator](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.rbac_keyvault_administrator_spi](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.rbac_keyvault_reader](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.rbac_keyvault_secrets_users](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azuread_group.rbac_keyvault_administrator](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) | data source |
-| [azuread_group.rbac_keyvault_reader](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) | data source |
-| [azurerm_client_config.current_config](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) | data source |
-| [azurerm_log_analytics_workspace.log_analytics_workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/log_analytics_workspace) | data source |
-| [azurerm_subnet.sa_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subnet) | data source |
-
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_admin_groups"></a> [admin\_groups](#input\_admin\_groups) | Name of the groups that can do all operations on all keys, secrets and certificates. | `list(string)` | `[]` | no |
-| <a name="input_email_receiver"></a> [email\_receiver](#input\_email\_receiver) | List of email receivers of secret expire notification. | `list(string)` | `[]` | no |
-| <a name="input_enabled_for_deployment"></a> [enabled\_for\_deployment](#input\_enabled\_for\_deployment) | Whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the Key Vault. | `bool` | `false` | no |
-| <a name="input_enabled_for_disk_encryption"></a> [enabled\_for\_disk\_encryption](#input\_enabled\_for\_disk\_encryption) | Whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. | `bool` | `false` | no |
-| <a name="input_enabled_for_template_deployment"></a> [enabled\_for\_template\_deployment](#input\_enabled\_for\_template\_deployment) | Whether Azure Resource Manager is permitted to retrieve secrets from the Key Vault. | `bool` | `false` | no |
-| <a name="input_environment"></a> [environment](#input\_environment) | The environment. e.g. dev, qa, uat, prod | `string` | `"dev"` | no |
-| <a name="input_expire_notification"></a> [expire\_notification](#input\_expire\_notification) | Send a notification before the secret expires | `bool` | `true` | no |
-| <a name="input_kv_number"></a> [kv\_number](#input\_kv\_number) | The use case of the keyvault, to be used in the name. e.g. 001, or 002 | `string` | `"001"` | no |
-| <a name="input_location"></a> [location](#input\_location) | The default location where the core network will be created | `string` | `"westeurope"` | no |
-| <a name="input_log_analytics_workspace_name"></a> [log\_analytics\_workspace\_name](#input\_log\_analytics\_workspace\_name) | The name of the Log Analytics workspace to send diagnostic logs to. | `string` | `null` | no |
-| <a name="input_network_acls"></a> [network\_acls](#input\_network\_acls) | Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. Set to `null` to disable. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more information. | <pre>object({<br>    bypass                     = optional(string, "None"),<br>    default_action             = optional(string, "Deny"),<br>    ip_rules                   = optional(list(string)),<br>    virtual_network_subnet_ids = optional(list(string)),<br>  })</pre> | `{}` | no |
-| <a name="input_network_resource_group_name"></a> [network\_resource\_group\_name](#input\_network\_resource\_group\_name) | The existing core network resource group name, to get details of the VNET to enable  private endpoint. | `string` | n/a | yes |
-| <a name="input_pe_subnet_name"></a> [pe\_subnet\_name](#input\_pe\_subnet\_name) | The subnet name, used in data source to get subnet ID, to enable the private endpoint. | `string` | n/a | yes |
-| <a name="input_project_name"></a> [project\_name](#input\_project\_name) | The name of the project. e.g. MDS | `string` | `"prj"` | no |
-| <a name="input_public_network_access_enabled"></a> [public\_network\_access\_enabled](#input\_public\_network\_access\_enabled) | Whether the Key Vault is available from public network. | `bool` | `false` | no |
-| <a name="input_reader_groups"></a> [reader\_groups](#input\_reader\_groups) | IDs of the objects that can read all keys, secrets and certificates. | `list(string)` | `[]` | no |
-| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group that contains the key vault | `string` | n/a | yes |
-| <a name="input_sku_name"></a> [sku\_name](#input\_sku\_name) | The Name of the SKU used for this Key Vault. Possible values are "standard" and "premium". | `string` | `"standard"` | no |
-| <a name="input_soft_delete_retention_days"></a> [soft\_delete\_retention\_days](#input\_soft\_delete\_retention\_days) | The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. | `number` | `7` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | The tags to associate with the key vault. | `map(any)` | `{}` | no |
-| <a name="input_virtual_network_name"></a> [virtual\_network\_name](#input\_virtual\_network\_name) | Virtual network name for the enviornment to enable private endpoint. | `string` | n/a | yes |
-| <a name="input_webhook_receiver"></a> [webhook\_receiver](#input\_webhook\_receiver) | n/a | <pre>list(object({<br>    name        = string,<br>    service_uri = string<br>  }))</pre> | `[]` | no |
+| `admin_groups` | Name of the groups that can do all operations on all keys, secrets and certificates. | `list(string)` | `[]` | no |
+| `email_receiver` | List of email receivers of secret expire notification. | `list(string)` | `[]` | no |
+| `enabled_for_deployment` | Whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the Key Vault. | `bool` | `false` | no |
+| `enabled_for_disk_encryption` | Whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. | `bool` | `false` | no |
+| `enabled_for_template_deployment` | Whether Azure Resource Manager is permitted to retrieve secrets from the Key Vault. | `bool` | `false` | no |
+| `environment` | The environment. e.g. dev, qa, uat, prod | `string` | `"dev"` | no |
+| `expire_notification` | Send a notification before the secret expires | `bool` | `true` | no |
+| `kv_number` | The use case of the keyvault, to be used in the name. e.g. 001, or 002 | `string` | `"001"` | no |
+| `location` | The default location where the core network will be created | `string` | `"westeurope"` | no |
+| `log_analytics_workspace_name` | The name of the Log Analytics workspace to send diagnostic logs to. | `string` | `null` | no |
+| `network_acls` | Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. Set to `null` to disable. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more information. | `object({ bypass = optional(string, "None"), default_action = optional(string, "Deny"), ip_rules = optional(list(string)), virtual_network_subnet_ids = optional(list(string)) })` | `{}` | no |
+| `network_resource_group_name` | The existing core network resource group name, to get details of the VNET to enable private endpoint. | `string` | n/a | yes |
+| `pe_subnet_name` | The subnet name, used in data source to get subnet ID, to enable the private endpoint. | `string` | n/a | yes |
+| `project` | The name of the project. e.g. prj | `string` | `"prj"` | no |
+| `public_network_access_enabled` | Whether the Key Vault is available from public network. | `bool` | `false` | no |
+| `reader_groups` | Name of the groups that can read all keys, secrets, and certificates. | `list(string)` | `[]` | no |
+| `resource_group_name` | The name of the resource group that contains the Key Vault | `string` | n/a | yes |
+| `sku_name` | The Name of the SKU used for this Key Vault. Possible values are "standard" and "premium". | `string` | `"standard"` | no |
+| `soft_delete_retention_days` | The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. | `number` | `7` | no |
+| `virtual_network_name` | Virtual network name for the environment to enable private endpoint. | `string` | n/a | yes |
+| `webhook_receiver` | List of webhook receivers for secret expire notification. | `list(object({ name = string, service_uri = string }))` | `[]` | no |
 
-## Outputs
+### Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_key_vault_id"></a> [key\_vault\_id](#output\_key\_vault\_id) | ID of the Key Vault. |
-| <a name="output_key_vault_name"></a> [key\_vault\_name](#output\_key\_vault\_name) | Name of the Key Vault. |
-| <a name="output_key_vault_uri"></a> [key\_vault\_uri](#output\_key\_vault\_uri) | URI of the Key Vault |
-<!-- END_TF_DOCS -->
+| `key_vault_id` | ID of the Key Vault. |
+| `key_vault_name` | Name of the Key Vault. |
+| `key_vault_uri` | URI of the Key Vault. |
