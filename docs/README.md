@@ -12,6 +12,8 @@ In this demo, you will see how non-Terraform users of the modules can use an AI 
 
 By harnessing the power of Azure AI Studio and private IaC data and documentation, we can create comprehensive and user-friendly AI assistants, ensuring that everyone can benefit, learn and understand private custom-created Terraform modules.
 
+---
+
 ## What You'll Learn
 
 In this demo, you will learn how to:
@@ -21,6 +23,8 @@ In this demo, you will learn how to:
 - Use Generative AI as assistant to interpretate, create and manage Terraform modules from bespoke IaC data and documentation.
 - Innovatively use AI to boost IaC productivity and streamline processes.
 - How to use AI to help users understand and utilise Terraform modules effectively and generate examples of usage based on the bespoke IaC data and documentation.
+
+---
 
 ## Contoso Modules
 
@@ -32,6 +36,8 @@ Explore each of Constoso's bespoke modules and detailed documentation on usage i
 - [Module 4: Azure Key Vault](./modules/azurerm-kv.md)
 - [Module 5: Azure Role Assignment](./modules/azurerm-iam.md)
 
+---
+
 ## GitHub Best Practices and Guidelines at Contoso
 
 Check out Contoso's GitHub tutorials to learn more about best practices and guidelines for using GitHub at Contoso:
@@ -40,18 +46,28 @@ Check out Contoso's GitHub tutorials to learn more about best practices and guid
 - [GitHub Security Best Practices](./guidelines/github-security.md)
 - [GitHub Collaboration Guidelines](./guidelines/github-collaboration.md)
 
+---
+
 ## Terraform Best Practices and Guidelines at Contoso
 
 Check out Contoso's Terraform tutorials to learn more about best practices and guidelines for using Terraform at Contoso:
 
-- [Terrafrom Pro Tips](./guidelines/terraform-pro.md)
+- [Terrafrom Pro Tips](./guidelines/terraform-pro-tips.md)
+
+---
 
 ## Additional Resources and Microsoft Azure Best Practices
 
 Explore additional resources and best practices guides for building and managing Azure resources:
 
-- [Naming rules and restrictions for Azure resources](./guidelines/naming-rules-and-restrictions.md)
+- [Naming rules and restrictions for Azure resources](./guidelines/azure-naming-rules-and-restrictions.md)
+
+---
 
 ## Contact
 
 For any questions or feedback, please open an issue or contact us at Contoso [pwd9000@hotmail.co.uk](mailto:pwd9000@hotmail.co.uk).
+
+### _Author_
+
+Like, share, follow me on: :octopus: [GitHub](https://github.com/Pwd9000-ML) | :penguin: [X/Twitter](https://x.com/pwd9000) | :space_invader: [LinkedIn](https://www.linkedin.com/in/marcel-l-61b0a96b/)

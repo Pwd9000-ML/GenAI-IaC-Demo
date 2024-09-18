@@ -6,6 +6,8 @@ At Contoso, we prioritize the security of our code and projects. GitHub, our cho
 
 In this guide, we will walk you through the various features available on GitHub, from **security alerts** for **vulnerable dependencies** to **secret scanning**, to help you fortify your code at Contoso.
 
+---
+
 ## Automating Code Security
 
 Before we dive deeper, let's understand why securing our code is crucial. With cyber threats on the rise, robust security measures are more important than ever. Hackers often exploit vulnerabilities in code and dependencies, which might be left exposed accidentally.
@@ -52,11 +54,11 @@ If your repository hosts supported CodeQL languages, you can either let GitHub a
 
 If your repository does not host supported CodeQL languages, or even if it does but also contains other languages or frameworks, you can add third-party code scanning tools to further enhance your code's security, such as:
 
-- **[SonarCloud](https://github.com/Pwd9000-ML/terraform-azurerm-nsg-administration/actions/new?category=security&query=code+scanning)**: A cloud-based code analysis service that automatically detects bugs, vulnerabilities, and code smells in your code.
-- **[TfSec](https://github.com/Pwd9000-ML/terraform-azurerm-nsg-administration/actions/new?category=security&query=code+scanning)**: A static analysis security scanner for your Terraform code.
-- **[trivy](https://github.com/Pwd9000-ML/terraform-azurerm-nsg-administration/actions/new?category=security&query=code+scanning)**: Scans Docker container images for vulnerabilities in OS packages and language dependencies.
+- **[SonarCloud](https://github.com/Pwd9000-ML/terraform-azurerm-nsg-administration/actions/new?category=security&query=SonarCloud)**: A cloud-based code analysis service that automatically detects bugs, vulnerabilities, and code smells in your code.
+- **[TfSec](https://github.com/Pwd9000-ML/terraform-azurerm-nsg-administration/actions/new?category=security&query=TFSEC)**: A static analysis security scanner for your Terraform code.
+- **[trivy](https://github.com/Pwd9000-ML/terraform-azurerm-nsg-administration/actions/new?category=security&query=Trivy)**: Scans Docker container images for vulnerabilities in OS packages and language dependencies.
 
-At the time of this writing, there are over 70 third-party [code scanning tools/workflows](https://github.com/Pwd9000-ML/terraform-azurerm-nsg-administration/actions/new?category=security&query=code+scanning) available for use, and the list is growing.
+At the time of this writing, there are over 76 third-party [code scanning tools/workflows](https://github.com/Pwd9000-ML/terraform-azurerm-nsg-administration/actions/new?category=security&query=code+scanning) available for use, and the list is growing.
 
 ---
 
@@ -68,37 +70,33 @@ Dependabot Security Updates is a feature of **Dependabot**, which automates depe
 
 For instance, if a new version of a dependency you're using is released that fixes a major security flaw, Dependabot would send an alert. It would also raise a pull request to update the dependency version in your project, keeping your project secure without requiring manual intervention.
 
-Here is an example of a Dependabot pull request where it has updated the **[Terraform AzureRM Provider](https://github.com/hashicorp/terraform-provider-azurerm/releases)** from version **3.69.0** to **3.71.0**:
-
-![image.png](https://raw.githubusercontent.com/Pwd9000-ML/blog-devto/main/posts/2023/GitHub-Code-Security/assets/dependabot.png)
-
 For more information, refer to the [supported package ecosystems](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#package-ecosystem?wt.mc_id=DT-MVP-5004771) documentation.
 
 You can also look at what dependencies are being monitored by **Dependabot** in your repository by navigating to the **Insights** tab in your repository.
 
 ---
 
-## 5. Security Policies and Advisories
+## 5. Security Policies and Advisories at Contoso
 
-GitHub allows developers to forge their security policies and advisories by allowing anyone to report security vulnerabilities directly and privately to the maintainers.
+At Contoso, we encourage developers to establish robust security policies and advisories. GitHub facilitates this by allowing anyone to report security vulnerabilities directly and privately to the maintainers.
 
-- A **security policy** document assists contributors in understanding how to report a security vulnerability in your project. It's like creating a help page for a user who identifies a potential breach, thereby promoting responsible reporting.
+- A **security policy** document helps contributors understand how to report a security vulnerability in your project. It's akin to creating a help page for a user who identifies a potential breach, thereby promoting responsible reporting.
 
 - A **security advisory**, on the other hand, allows you to interact with users regarding identified vulnerabilities. For example, you could use an advisory to discuss a recently discovered flaw in your project, suggest a workaround, and preview a fix before public disclosure.
 
 When private vulnerability reporting is enabled for a repository, security researchers will see a new button in the Advisories page of the repository. The security researcher can click this button to privately discuss, fix, and publish information about security vulnerabilities in your repository's code.
 
-Have a look at **_[Privately reporting a security vulnerability](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability?wt.mc_id=DT-MVP-5004771)_** for more information.
+For more information, refer to **[Privately reporting a security vulnerability](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability?wt.mc_id=DT-MVP-5004771)**.
 
 ---
 
 ## Conclusion
 
-GitHub's security features can drastically help lower the risks of your code getting exploited. By using these tools in concert, you benefit from both proactive detection and resolution of potential vulnerabilities.
+GitHub's security features can significantly reduce the risk of your code being exploited. By using these tools in concert, you benefit from both proactive detection and resolution of potential vulnerabilities.
 
 Moreover, the value of automating your code security cannot be overstated. With these automated features, you can manage vulnerabilities, dependencies, and other threats all in one place. The ability to find and fix issues before they become problematic means you can continue to write code confidently.
 
-By harnessing the potential of GitHub's security features, you are taking a significant step towards a more secure coding environment. Protecting your code is as crucial as writing it. Lean on GitHub's comprehensive suite of security tools and keep your projects safe and resilient.  
+By harnessing the potential of GitHub's security features, you are taking a significant step towards a more secure coding environment at Contoso. Protecting your code is as crucial as writing it. Lean on GitHub's comprehensive suite of security tools and keep your projects safe and resilient.
 
 ---
 
