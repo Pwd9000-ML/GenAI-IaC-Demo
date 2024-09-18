@@ -24,8 +24,6 @@ Azure Application Gateway is a web traffic load balancer that enables you to man
 
 ## Deployed Resources
 
-----------------------------;
-
 The following resources will be deployed when using Contoso's Application Gateway module:
 
 - azurerm_user_assigned_identity
@@ -37,8 +35,6 @@ The following resources will be deployed when using Contoso's Application Gatewa
 - azurerm_role_assignment (optional - based on variable `key_vault_rbac`)
 
 ## Pre-requisites
-
-----------------------------;
 
 Make sure to update the Terraform versions and providers according to your specific needs.
 
@@ -56,16 +52,12 @@ Before deploying Contoso's Application Gateway module, ensure the following Azur
 
 ## Contoso Naming Convention
 
-----------------------------;
-
 Contoso's naming convention for the Application Gateway module follows a structured format to ensure consistency and clarity across resources. The naming convention derived from the following variables `environment` and `project`:
 
 **Construct:** `"conto-${var.environment}-${var.project}-appgw"`  
 **Example Naming:** `conto-dev-prj-appgw`  
 
 ## Examples
-
-----------------------------;
 
 ### module.tf
 
@@ -547,8 +539,6 @@ provider "azurerm" {
 ```
 
 ## Input arguments and outputs
-
-----------------------------;
 
 ### Inputs
 

@@ -29,8 +29,6 @@ You can configure the named values as you want.
 
 ## Deployed Resources
 
----------------------------;
-
 The following resources will be deployed when using Contoso's APIM module.
 
 - azurerm_api_management  
@@ -43,8 +41,6 @@ The following resources will be deployed when using Contoso's APIM module.
 - azurerm_api_management_custom_domain (optional - Used for custom hostnames)
 
 ## Pre-requisites
-
-----------------------------;
 
 Make sure to update the Terraform versions and providers according to your specific needs.
 
@@ -64,16 +60,12 @@ Before deploying Contoso's APIM module, ensure the following Azure resources are
 
 ## Contoso Naming convention
 
-----------------------------;
-
 Contoso's naming convention for the APIM module follows a structured format to ensure consistency and clarity across resources. The naming convention is derived from the following variables `environment` and `project`:
 
 **Construct:** `"conto-${var.environment}-${var.project}-apim"`  
 **Example Naming:** `conto-dev-prj-apim`  
 
 ## Examples
-
-----------------------------;
 
 ### module.tf
 
@@ -432,8 +424,6 @@ provider "azurerm" {
 ```
 
 ## Input arguments and outputs
-
-----------------------------;
 
 ### Inputs
 

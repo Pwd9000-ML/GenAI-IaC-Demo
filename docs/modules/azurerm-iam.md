@@ -31,15 +31,11 @@ This module will:
 
 ## Deployed Resources
 
----------------------------;
-
 The following resources will be deployed when using Contoso's Role Assignment (IAM) Module:
 
 - azurerm_role_assignment
 
 ## Pre-requisites
-
-----------------------------;
 
 Make sure to update the Terraform versions and providers according to your specific needs.
 
@@ -53,13 +49,9 @@ Before deploying Contoso's IAM module, ensure the following Azure resources are 
 
 ## Contoso Naming Convention
 
-----------------------------;
-
 There is no specific naming convention for this module because the module is not creating any resources. It is only assigning roles to existing resources in Azure using the Azure RBAC/IAM.
 
 ## Examples
-
-----------------------------;
 
 ### module.tf
 
@@ -143,8 +135,6 @@ provider "azurerm" {
 ```
 
 ## Input arguments and outputs
-
-----------------------------;
 
 ### Inputs
 
