@@ -36,7 +36,7 @@ By adhering to a clear and standardised repository naming convention, you ensure
 
 ## Tip 2: Classify Repositories with Topics at Contoso
 
-At Contoso, we utilize GitHub's **topics** feature to classify and organize our repositories effectively. Topics are labels that can be added to repositories to help categorize and discover projects. They are a great way to organize and group repositories based on their purpose, technology stack, or any other relevant criteria.
+At Contoso, we utilise GitHub's **topics** feature to classify and organize our repositories effectively. Topics are labels that can be added to repositories to help categorize and discover projects. They are a great way to organize and group repositories based on their purpose, technology stack, or any other relevant criteria.
 
 ### How to Add Topics
 
@@ -58,7 +58,7 @@ When adding topics to a repository, it's important to choose topics that are rel
 
 For more information on topics and how to use them effectively, refer to the [GitHub repo topics documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics?wt.mc_id=DT-MVP-5004771).
 
-By classifying repositories with topics, Contoso ensures that our projects are easily discoverable, well-organized, and aligned with our community and technological standards.
+By classifying repositories with topics, Contoso ensures that our projects are easily discoverable, well-organised, and aligned with our community and technological standards.
 
 ---
 
@@ -106,7 +106,7 @@ When choosing a branching strategy, consider the needs of your team and project.
 
 For more information on branching and how to use branches, refer to the [GitHub repo branch documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches?wt.mc_id=DT-MVP-5004771).
 
-By embracing a consistent branching strategy, Contoso ensures that our codebase remains organized, stable, and conducive to effective collaboration.
+By embracing a consistent branching strategy, Contoso ensures that our codebase remains organised, stable, and conducive to effective collaboration.
 
 ---
 
@@ -134,7 +134,7 @@ By securing our repositories with branch protection rules, Contoso ensures that 
 
 ## Tip 6: Maintain a Clean Commit History at Contoso
 
-At Contoso, maintaining a clean commit history is essential for effective collaboration and code management. A well-organized commit history provides a clear record of changes, helps maintain a stable codebase, and makes it easier to understand the evolution of the project. It also reduces the risk of conflicts and errors.
+At Contoso, maintaining a clean commit history is essential for effective collaboration and code management. A well-organised commit history provides a clear record of changes, helps maintain a stable codebase, and makes it easier to understand the evolution of the project. It also reduces the risk of conflicts and errors.
 
 Here are several best practices you can adopt to maintain a clean commit history:
 
@@ -144,7 +144,7 @@ Here are several best practices you can adopt to maintain a clean commit history
 - **Use Consistent Formatting**: Maintain a consistent format for your commit messages. Use the imperative mood and keep the first line to 50 characters or less. This consistency makes the commit history easier to read and understand.
 - **Use Signed Commits**: Sign your commits to verify their authenticity and protect against tampering. Signed commits add an extra layer of security to your codebase.
 
-By following these best practices, Contoso ensures that our commit history remains clean, organized, and easy to navigate. This approach fosters better collaboration, improves code quality, and helps maintain a stable and secure codebase.
+By following these best practices, Contoso ensures that our commit history remains clean, organised, and easy to navigate. This approach fosters better collaboration, improves code quality, and helps maintain a stable and secure codebase.
 
 For example, a good commit message looks like this:
 
@@ -162,7 +162,7 @@ When maintaining a clean commit history, it's important to consider the needs of
 
 ---
 
-## Tip 7: Utilize .gitignore at Contoso
+## Tip 7: utilise .gitignore at Contoso
 
 At Contoso, managing the files and directories that should be excluded from version control is crucial for maintaining a clean and efficient repository. The `.gitignore` file is a simple and effective tool that allows you to specify patterns to match files and directories you want to ignore, preventing them from being added to the repository.
 
@@ -179,7 +179,7 @@ When using `.gitignore`, it's important to consider the needs of your team and p
 
 For more information on `.gitignore` and how to use it effectively, refer to the [GitHub repo .gitignore documentation](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files?wt.mc_id=DT-MVP-5004771).
 
-By utilizing `.gitignore` effectively, Contoso ensures that our repositories remain clean, organized, and free from unnecessary files, enhancing collaboration and efficiency.
+By utilizing `.gitignore` effectively, Contoso ensures that our repositories remain clean, organised, and free from unnecessary files, enhancing collaboration and efficiency.
 
 ---
 
@@ -207,7 +207,7 @@ By utilizing GitHub Actions, Contoso ensures that our development processes are 
 
 ## Tip 9: Leverage Issue Tracking and Projects at Contoso
 
-At Contoso, we utilize GitHub's powerful issue tracking system to manage and track **issues**, **bugs**, and **feature requests**. Additionally, we use [project status boards](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects#adding-a-board-layout?wt.mc_id=DT-MVP-5004771) to oversee the progress of our work.
+At Contoso, we utilise GitHub's powerful issue tracking system to manage and track **issues**, **bugs**, and **feature requests**. Additionally, we use [project status boards](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects#adding-a-board-layout?wt.mc_id=DT-MVP-5004771) to oversee the progress of our work.
 
 **GitHub Projects** help us manage our work more effectively and improve collaboration and communication within our team.
 
@@ -215,20 +215,20 @@ Issue tracking and Projects are beneficial for several reasons, including:
 
 - **Track Issues and Bugs**: Monitor issues and bugs, and manage the process of resolving them.
 - **Track Feature Requests**: Keep track of feature requests and manage the process of implementing them.
-- **Plan and Prioritize Work**: Organize and prioritize tasks, and manage the process of completing them.
+- **Plan and prioritise Work**: Organize and prioritise tasks, and manage the process of completing them.
 - **Manage Releases**: Oversee releases and track the progress of work through **[milestones](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/viewing-your-milestones-progress?wt.mc_id=DT-MVP-5004771)**.
 - **Collaborate and Communicate**: Enhance collaboration and communication within the team, improving the quality and security of our code.
 - **Labeling**: Use labels to categorize issues, making it easier to manage and track them (e.g., `bug`, `enhancement`, `help wanted`).
 
 For more information on issue tracking and project boards and how to use them effectively, refer to the official [GitHub issue tracking documentation](https://docs.github.com/en/issues?wt.mc_id=DT-MVP-5004771) and [GitHub projects documentation](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects?wt.mc_id=DT-MVP-5004771).
 
-By leveraging GitHub's issue tracking and project management tools, Contoso ensures that our development processes are organized, efficient, and conducive to effective collaboration.
+By leveraging GitHub's issue tracking and project management tools, Contoso ensures that our development processes are organised, efficient, and conducive to effective collaboration.
 
 ---
 
-## Tip 10: Utilize GitHub Security Features at Contoso
+## Tip 10: utilise GitHub Security Features at Contoso
 
-At Contoso, we prioritize the security of our codebase. GitHub provides a range of security features that can help us identify and fix security vulnerabilities, and proactively protect our code from security threats and leaks. These features are essential for maintaining a secure and robust codebase.
+At Contoso, we prioritise the security of our codebase. GitHub provides a range of security features that can help us identify and fix security vulnerabilities, and proactively protect our code from security threats and leaks. These features are essential for maintaining a secure and robust codebase.
 
 Here are some key GitHub security features we use at Contoso:
 

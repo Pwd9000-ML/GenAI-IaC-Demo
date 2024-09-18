@@ -42,7 +42,7 @@ Explore each of Constoso's bespoke modules and detailed documentation on usage i
 
 Check out Contoso's GitHub tutorials to learn more about best practices and guidelines for using GitHub at Contoso:
 
-- [GitHub Pro Tips](./guidelines/github-pro.md)
+- [GitHub CI/CD deployment guidelines for Terraform](./guidelines/github-cicd-terraform.md)
 - [GitHub Security Best Practices](./guidelines/github-security.md)
 - [GitHub Repository Best Practices](./guidelines/github-repo.md)
 - [GitHub Collaboration Guidelines](./guidelines/github-collaboration.md)
