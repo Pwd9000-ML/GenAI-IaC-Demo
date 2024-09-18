@@ -23,10 +23,10 @@ In this demo, you will learn how to:
 Explore each of Constoso's bespoke modules and detailed documentation on usage including examples and explanations:
 
 - [Module 1: Azure Resource Group](./modules/azurerm-rg.md)
-- [Module 2: Azure Storage Account](./modules/azurerm-sa.md)
-- [Module 3: Azure Key Vault](./modules/azurerm-kv.md)
+- [Module 2: Azure API Management](./modules/azurerm-apim.md)
+- [Module 3: Azure Application Gateway](./modules/azurerm-appgw.md)
 - [Module 4: Azure Key Vault](./modules/azurerm-kv.md)
-- [Module 5: Azure Key Vault](./modules/azurerm-kv.md)
+- [Module 5: Azure Role Assignment](./modules/azurerm-iam.md)
 
 ## Terraform Best Practices and Guidelines at Contoso
 
