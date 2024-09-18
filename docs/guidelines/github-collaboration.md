@@ -104,4 +104,4 @@ So, find a project that resonates with your interest, understand its guidelines,
 
 ### _Author_
 
-Like, share, follow me on: :octopus: [GitHub](https://github.com/Pwd9000-ML) | :penguin: [X/Twitter](https://x.com/pwd9000) | :space_invader: [LinkedIn](https://www.linkedin.com/in/marcel-l-61b0a96b/)
+Marcel Lupo - Follow me on: [GitHub](https://github.com/Pwd9000-ML) | [X/Twitter](https://x.com/pwd9000) | [LinkedIn](https://www.linkedin.com/in/marcel-l-61b0a96b/)

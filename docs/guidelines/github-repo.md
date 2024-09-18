@@ -252,4 +252,4 @@ In this guide, we covered several key topics and best practices for managing Git
 
 ### _Author_
 
-Like, share, follow me on: :octopus: [GitHub](https://github.com/Pwd9000-ML) | :penguin: [X/Twitter](https://x.com/pwd9000) | :space_invader: [LinkedIn](https://www.linkedin.com/in/marcel-l-61b0a96b/)
+Marcel Lupo - Follow me on: [GitHub](https://github.com/Pwd9000-ML) | [X/Twitter](https://x.com/pwd9000) | [LinkedIn](https://www.linkedin.com/in/marcel-l-61b0a96b/)
