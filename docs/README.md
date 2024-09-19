@@ -57,19 +57,19 @@ Check out Contoso's Terraform tutorials to learn more about best practices and g
 
 ---
 
-## AI Prompt and Context Examples
-
-AI Prompt and Context Examples to learn more about how to give context for better AI assistant responses for IaC used in this demo:
-
-- [AI Prompt Examples](./guidelines/azure-ai-prompt-context.md)
-
----
-
 ## Additional Resources and Microsoft Azure Best Practices
 
 Explore additional resources and best practices guides for building and managing Azure resources:
 
 - [Naming rules and restrictions for Azure resources](./guidelines/azure-naming-rules-and-restrictions.md)
+
+---
+
+## AI Prompt and Context Examples
+
+AI Prompt and Context Examples to learn more about how to give context for better AI assistant responses for IaC used in this demo:
+
+- [AI Prompt Examples](./guidelines/azure-ai-prompt-context.md)
 
 ---
 
