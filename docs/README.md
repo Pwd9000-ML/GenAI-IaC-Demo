@@ -1,3 +1,5 @@
+![OIP](https://github.com/user-attachments/assets/79da4693-3bee-4900-9572-01be13798227)
+
 # Contoso Terraform Modules and Best Practices Documentation
 
 This repository contains the documentation for Contoso's bespoke Terraform modules and best practices for managing Azure resources. The documentation provides detailed information on how to use each module, including examples, input variables, and outputs.
